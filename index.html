@@ -148,6 +148,18 @@ Eslatma: Ushbu hisob-kitob natijalari taxminiy bo‘lib, haqiqiy suv miqdori oqi
   </div>
 </div>
 
+<!-- INPUTLAR -->
+<input id="a" type="number" placeholder="A">
+<input id="b" type="number" placeholder="B">
+<input id="h" type="number" placeholder="H">
+<input id="s" type="number" placeholder="Masofa (s)">
+<input id="t" type="number" placeholder="Vaqt (t)">
+<input id="hour" type="number" placeholder="Soat">
+
+<button onclick="hisobla()">Hisobla</button>
+
+<div id="result"></div>
+
 <script>
 function hisobla(){
   let a = parseFloat(aInput.value);
@@ -162,10 +174,10 @@ function hisobla(){
     return;
   }
 
-  let S = ((a + b) * h) / 2;      // m²
-  let v = s / t;                 // m/s
-  let Q = S * v;                 // m³/s
-  let total = Q * hour * 3600;   // m³
+  let S = ((a + b) * h) / 2;
+  let v = s / t;
+  let Q = S * v;
+  let total = Q * hour * 3600;
 
   result.innerHTML =
     "Ariq yuzasi S = " + S.toFixed(3) + " m²<br>" +
@@ -181,9 +193,11 @@ const sInput = document.getElementById("s");
 const tInput = document.getElementById("t");
 const hourInput = document.getElementById("hour");
 const result = document.getElementById("result");
+</script>
 
 </body>
 </html>
+
 
 
 
