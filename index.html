@@ -148,20 +148,21 @@ Eslatma: Ushbu hisob-kitob natijalari taxminiy bo‘lib, haqiqiy suv miqdori oqi
   </div>
 </div>
 
-<!-- INPUTLAR -->
-<input id="a" type="number" placeholder="A">
-<input id="b" type="number" placeholder="B">
-<input id="h" type="number" placeholder="H">
-<input id="s" type="number" placeholder="Masofa (s)">
-<input id="t" type="number" placeholder="Vaqt (t)">
+<input id="a" type="number" placeholder="A (m)">
+<input id="b" type="number" placeholder="B (m)">
+<input id="h" type="number" placeholder="H (m)">
+<input id="s" type="number" placeholder="Masofa s (m)">
+<input id="t" type="number" placeholder="Vaqt t (sekund)">
 <input id="hour" type="number" placeholder="Soat">
 
+<br><br>
 <button onclick="hisobla()">Hisobla</button>
 
+<br><br>
 <div id="result"></div>
 
 <script>
-function hisobla(){
+function hisobla() {
   let a = parseFloat(aInput.value);
   let b = parseFloat(bInput.value);
   let h = parseFloat(hInput.value);
@@ -169,15 +170,15 @@ function hisobla(){
   let t = parseFloat(tInput.value);
   let hour = parseFloat(hourInput.value);
 
-  if([a,b,h,s,t,hour].some(isNaN)){
+  if ([a, b, h, s, t, hour].some(isNaN)) {
     result.innerHTML = "Iltimos, barcha qiymatlarni kiriting!";
     return;
   }
 
-  let S = ((a + b) * h) / 2;
-  let v = s / t;
-  let Q = S * v;
-  let total = Q * hour * 3600;
+  let S = ((a + b) * h) / 2;   // m²
+  let v = s / t;              // m/s
+  let Q = S * v;              // m³/s
+  let total = Q * hour * 3600; // m³
 
   result.innerHTML =
     "Ariq yuzasi S = " + S.toFixed(3) + " m²<br>" +
@@ -197,7 +198,6 @@ const result = document.getElementById("result");
 
 </body>
 </html>
-
 
 
 
