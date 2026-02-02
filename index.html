@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<title>Ariq suv sarfi (rasm bilan)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  font-family: Arial, sans-serif;
+  background:#f3f7f6;
+  margin:0;
+  padding:20px;
+}
+.container{
+  max-width:900px;
+  margin:auto;
+  background:white;
+  padding:20px;
+  border-radius:14px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.12);
+}
+h2{
+  text-align:center;
+  color:#1e7f43;
+}
+.content{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+}
+.image-box{
+  flex:1;
+  text-align:center;
+}
+.image-box img{
+  max-width:100%;
+  border-radius:10px;
+}
+.form-box{
+  flex:1;
+}
+label{
+  font-weight:600;
+  margin-top:10px;
+  display:block;
+}
+input{
+  width:100%;
+  padding:9px;
+  margin-top:5px;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+button{
+  margin-top:15px;
+  width:100%;
+  padding:12px;
+  background:#1e7f43;
+  color:white;
+  border:none;
+  border-radius:10px;
+  font-size:16px;
+  cursor:pointer;
+}
+button:hover{background:#166334}
+.result{
+  margin-top:15px;
+  background:#eefaf3;
+  padding:12px;
+  border-radius:8px;
+  font-weight:600;
+}
+.note{
+  font-size:13px;
+  color:#555;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h2>💧 Ariqdan o‘tayotgan suv miqdori</h2>
+
+  <div class="content">
+    
+    <!-- RASM -->
+    <div class="image-box">
+      <img src="ariq.png" alt="Ariq o‘lchamlari">
+      <p class="note">
+        a – suv yuzasi | b – ariq tubi | h – chuqurlik<br>
+        s – masofa | t – vaqt
+      </p>
+    </div>
+
+    <!-- FORM -->
+    <div class="form-box">
+      <label>a — Suv yuzasi kengligi (metr)</label>
+      <input type="number" id="a" step="0.01">
+
+      <label>b — Ariq tubi kengligi (metr)</label>
+      <input type="number" id="b" step="0.01">
+
+      <label>h — Suv chuqurligi (metr)</label>
+      <input type="number" id="h" step="0.01">
+
+      <label>s — "Suv qalqisi" bosib o‘tadigan uzunlik (metr) (masalan: 5 yoki 10 metrda)</label>
+      <input type="number" id="s" step="0.01">
+
+      <label>t — s - masofada "Suv qalqisi" bosib o‘tish vaqti (sekund)</label>
+      <input type="number" id="t" step="0.01">
+
+      <label>Qancha soat suv o‘tgan (soat)</label>
+      <input type="number" id="hour" step="0.1">
+
+      <button onclick="hisobla()">Hisoblash</button>
+
+      <div class="result" id="result">Natijalar shu yerda chiqadi</div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function hisobla(){
+  let a = parseFloat(aInput.value);
+  let b = parseFloat(bInput.value);
+  let h = parseFloat(hInput.value);
+  let s = parseFloat(sInput.value);
+  let t = parseFloat(tInput.value);
+  let hour = parseFloat(hourInput.value);
+
+  if([a,b,h,s,t,hour].some(isNaN)){
+    result.innerHTML = "Iltimos, barcha qiymatlarni kiriting!";
+    return;
+  }
+
+  let S = ((a + b) * h) / 2;      // m²
+  let v = s / t;                 // m/s
+  let Q = S * v;                 // m³/s
+  let total = Q * hour * 3600;   // m³
+
+  result.innerHTML =
+    "Ariq yuzasi S = " + S.toFixed(3) + " m²<br>" +
+    "Suv tezligi v = " + v.toFixed(3) + " m/s<br>" +
+    "1 sekundda suv: Q = " + Q.toFixed(3) + " m³/s<br><br>" +
+    "<b>" + hour + " soatda o‘tgan suv: " + total.toFixed(2) + " m³</b>";
+}
+
+const aInput = document.getElementById("a");
+const bInput = document.getElementById("b");
+const hInput = document.getElementById("h");
+const sInput = document.getElementById("s");
+const tInput = document.getElementById("t");
+const hourInput = document.getElementById("hour");
+const result = document.getElementById("result");
+</script>
+
+</body>
+</html>
