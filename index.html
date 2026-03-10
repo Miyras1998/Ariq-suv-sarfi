@@ -1,97 +1,266 @@
 <!DOCTYPE html>
 <html lang="uz">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ariq suv sarfi</title>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9129324168081991" crossorigin="anonymous"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body { margin: 0; font-family: Arial, sans-serif; background: #f4f7fb; padding-bottom: 20px; }
-        .header { background: #1976d2; padding: 15px; text-align: center; }
-        .header nav { display: flex; justify-content: center; gap: 20px; }
-        .header a { color: white; text-decoration: none; font-weight: bold; }
-        
-        .container { max-width: 800px; margin: 20px auto; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        h2 { text-align: center; color: #1e7f43; }
-        
-        .content { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 20px; }
-        .image-box, .form-box { flex: 1; min-width: 280px; }
-        .image-box img { width: 100%; border-radius: 8px; }
-        
-        label { display: block; margin-top: 10px; font-weight: bold; }
-        input { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; }
-        
-        button { width: 100%; padding: 12px; background: #1e7f43; color: white; border: none; border-radius: 8px; margin-top: 20px; cursor: pointer; font-size: 16px; }
-        button:hover { background: #166334; }
-        
-        .result { margin-top: 20px; padding: 15px; background: #eefaf3; border-radius: 8px; border-left: 5px solid #1e7f43; display: none; }
-        .formula { background: #f9f9f9; padding: 10px; border-left: 4px solid #1976d2; margin: 15px 0; font-family: "Courier New", Courier, monospace; font-weight: bold; }
-    </style>
+<title>Ariq suv sarfi (rasm bilan)</title>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9129324168081991"
+crossorigin="anonymous"></script>
+
+<style>
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:#f4f7fb;
+}
+
+/* header menyu */
+.header{
+background:#1976d2;
+padding:12px;
+text-align:center;
+}
+
+.header nav{
+display:flex;
+justify-content:space-around;
+max-width:600px;
+margin:auto;
+}
+
+.header a{
+color:white;
+text-decoration:none;
+font-size:16px;
+font-weight:bold;
+}
+
+/* telefon uchun */
+@media (max-width:600px){
+.header nav{
+flex-direction:row;
+}
+.header a{
+font-size:14px;
+}
+}
+
+/* reklama uchun joy */
+.ads{
+margin:10px auto;
+max-width:700px;
+background:#ffffff;
+padding:10px;
+text-align:center;
+}
+
+/* asosiy konteyner */
+.container{
+max-width:900px;
+margin:20px auto;
+background:white;
+padding:20px;
+border-radius:14px;
+box-shadow:0 10px 25px rgba(0,0,0,0.12);
+}
+
+h2{
+text-align:center;
+color:#1e7f43;
+}
+
+/* rasm va forma */
+.content{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+margin-top:20px;
+}
+
+.image-box{
+flex:1;
+min-width:300px;
+text-align:center;
+}
+
+.image-box img{
+max-width:100%;
+border-radius:10px;
+}
+
+.form-box{
+flex:1;
+min-width:300px;
+}
+
+label{
+font-weight:600;
+margin-top:15px;
+display:block;
+}
+
+input{
+width:100%;
+padding:10px;
+margin-top:5px;
+border-radius:8px;
+border:1px solid #ccc;
+box-sizing:border-box;
+}
+
+button{
+margin-top:20px;
+width:100%;
+padding:12px;
+background:#1e7f43;
+color:white;
+border:none;
+border-radius:10px;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+background:#166334;
+}
+
+.result{
+margin-top:15px;
+background:#eefaf3;
+padding:12px;
+border-radius:8px;
+font-weight:600;
+color:#1e7f43;
+display: none; /* Dastlab yashirin turadi */
+}
+
+/* eslatma */
+.note{
+font-size:13px;
+color:#555;
+margin-top:10px;
+}
+
+/* be'guvchi satr */
+.ticker{
+background:#ffc107;
+padding:5px 0;
+font-weight:bold;
+}
+
+.formula{
+    background:#ffffff;
+    padding:15px;
+    border-left:5px solid #0a4a7a;
+    font-size:20px;
+    margin:20px 0;
+}
+ul{
+    background:#ffffff;
+    padding:15px;
+}
+</style>
 </head>
 <body>
 
 <header class="header">
-    <nav>
-        <a href="#">🏠 Asosiy</a>
-        <a href="#">ℹ️ Ma'lumot</a>
-    </nav>
+<nav>
+<a href="index.html">🏠 Asosiy</a>
+<a href="about.html">ℹ️ Biz haqimizda</a>
+<a href="contact.html">📞 Aloqa</a>
+</nav>
 </header>
 
+<marquee class="ticker" behavior="alternate" direction="left">
+Sayt test rejimida ishlamoqda / Сайт находится в тестовом режиме
+</marquee>
+
+<div class="ads">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9129324168081991"
+     data-ad-slot="1234567890"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
 <div class="container">
-    <h2>💧 Ariq suv sarfini hisoblash</h2>
+<h2>💧 Ariqdan o‘tayotgan suv miqdori</h2>
 
-    <div class="content">
-        <div class="image-box">
-            <img src="https://via.placeholder.com/400x300.png?text=Ariq+Chizmasi" alt="Ariq chizmasi">
-        </div>
+<div class="content">
+<div class="image-box">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA..." alt="Ariq chizmasi">
+</div>
 
-        <div class="form-box">
-            <label for="width">Ariq kengligi (m):</label>
-            <input type="number" id="width" step="0.01" placeholder="Masalan: 0.6">
+<div class="form-box">
+<label for="width">Ariq kengligi (m):</label>
+<input type="number" id="width" placeholder="Masalan: 0.5" step="0.01">
 
-            <label for="depth">Suv balandligi (m):</label>
-            <input type="number" id="depth" step="0.01" placeholder="Masalan: 0.4">
+<label for="depth">Suv balandligi (m):</label>
+<input type="number" id="depth" placeholder="Masalan: 0.3" step="0.01">
 
-            <label for="speed">Oqim tezligi (m/sek):</label>
-            <input type="number" id="speed" step="0.01" placeholder="Masalan: 0.8">
+<label for="speed">Oqim tezligi (m/sek):</label>
+<input type="number" id="speed" placeholder="Masalan: 1.2" step="0.01">
 
-            <button onclick="calculate()">Hisoblash</button>
+<button onclick="hisobla()">Hisoblash</button>
 
-            <div id="resultBox" class="result">
-                <strong>Natija:</strong> <span id="resVal">0</span> m³/sek
-            </div>
-        </div>
-    </div>
+<div id="resultBox" class="result">
+Natija: <span id="natija">0</span> m³/sek
+</div>
+</div>
+</div>
 
-    <hr>
-    <h3>Hisoblash formulasi:</h3>
-    <div class="formula">Q = S × v</div>
-    <p>Bunda:</p>
-    <ul>
-        <li><b>Q</b> — suv sarfi (m³/sek)</li>
-        <li><b>S</b> — kesim yuzasi (kenglik × balandlik)</li>
-        <li><b>v</b> — oqim tezligi</li>
-    </ul>
+<p class="note">
+<strong>Eslatma:</strong> Ushbu hisob-kitob natijalari taxminiy bo‘lib, oqim tezligi va ariq shakliga bog‘liq.
+</p>
+
+<hr>
+
+<h1>Suv sarfi nima va u qanday hisoblanadi?</h1>
+
+<p>
+<b>Suv sarfi</b> — bu oqimning ko‘ndalang kesimi orqali 
+vaqt birligi ichida oqib o‘tadigan suv hajmiga aytiladi. 
+</p>
+
+<h2>Hisoblash formulasi</h2>
+<p>Suv sarfini aniqlash uchun kesim yuzasi (<b>S</b>) suvning tezligi (<b>v</b>) ga ko‘paytiriladi:</p>
+
+<div class="formula">
+Q = S × v
+</div>
+<ul>
+<li><b>Q</b> — suv sarfi (m³/sek)</li>
+<li><b>S</b> — kesim yuzasi (m²)</li>
+<li><b>v</b> — oqim tezligi (m/sek)</li>
+</ul>
 </div>
 
 <script>
-    function calculate() {
-        const w = document.getElementById('width').value;
-        const d = document.getElementById('depth').value;
-        const s = document.getElementById('speed').value;
-        const resBox = document.getElementById('resultBox');
-        const resVal = document.getElementById('resVal');
-
-        if (w > 0 && d > 0 && s > 0) {
-            const Q = (w * d * s).toFixed(3);
-            resVal.innerText = Q;
-            resBox.style.display = 'block';
-        } else {
-            alert("Iltimos, barcha maydonlarni to'g'ri to'ldiring!");
-        }
+function hisobla() {
+    // Qiymatlarni olish
+    var w = document.getElementById('width').value;
+    var d = document.getElementById('depth').value;
+    var v = document.getElementById('speed').value;
+    
+    // Tekshirish va hisoblash
+    if (w > 0 && d > 0 && v > 0) {
+        var s_yuza = w * d;
+        var q_sarf = (s_yuza * v).toFixed(3);
+        
+        // Natijani ko'rsatish
+        document.getElementById('natija').innerText = q_sarf;
+        document.getElementById('resultBox').style.display = 'block';
+    } else {
+        alert("Iltimos, barcha maydonlarni to'ldiring!");
     }
+}
 </script>
 
 </body>
