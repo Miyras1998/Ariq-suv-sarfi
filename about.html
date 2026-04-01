@@ -2,43 +2,134 @@
 <html lang="uz">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biz haqimizda - Ariq Suv Sarfi</title>
+    
+    <style>
+        /* Asosiy sahifa dizayni */
+        body {
+            background-color: #f1f5f9;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, sans-serif;
+        }
+
+        /* Ma'lumot qismi */
+        .info-container {
+            max-width: 800px;
+            margin: 40px auto;
+            color: #334155;
+            line-height: 1.8;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+        .info-container h2 {
+            color: #0284c7;
+            font-size: 1.8rem;
+            border-bottom: 2px solid #e0f2fe;
+            padding-bottom: 10px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+        .info-container h3 {
+            color: #0f172a;
+            font-size: 1.3rem;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .info-container p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+
+        /* Maxsus ajratilgan matn qutisi */
+        .highlight-box {
+            background: #f8fafc;
+            border-left: 4px solid #0284c7;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Galochkali ro'yxat */
+        .info-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .info-list li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 1.05rem;
+        }
+        .info-list li::before {
+            content: "✓";
+            color: #0284c7;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        /* Pastki qismdagi chaqiriq qutisi */
+        .footer-callout {
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 35px;
+            text-align: center;
+            font-weight: 600;
+            color: #b45309;
+        }
+
+        /* Mobil qurilmalar uchun moslashuvchanlik */
+        @media (max-width: 600px) {
+            body {
+                padding: 0;
+            }
+            .info-container {
+                padding: 20px;
+                margin: 20px 10px;
+            }
+            .info-container h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>
-<body style="font-family: Arial, sans-serif; background-color: #f4f4f9; margin: 0; padding: 0;">
+<body>
 
-    <header style="background-color: #007bff; padding: 15px; text-align: center;">
-        <nav>
-            <a href="index.html" style="color: white; margin: 0 10px; text-decoration: none;">🏠 Asosiy</a>
-            <a href="about.html" style="color: white; margin: 0 10px; text-decoration: none;">ℹ️ Biz haqimizda</a>
-            <a href="contact.html" style="color: white; margin: 0 10px; text-decoration: none;">📞 Aloqa</a>
-        </nav>
-    </header>
+    <article class="info-container">
+        <h2>ℹ️ Biz haqimizda</h2>
+        <p><strong>"Ariq suv sarfi"</strong> elektron hisoblagichiga xush kelibsiz!</p>
 
-    <main style="max-width: 800px; margin: 30px auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
-        <h2 style="color: #333;">ℹ️ Biz haqimizda</h2>
-        <p><strong>"Ariq suv sarfi"</strong> elektron hisoblagichga xush kelibsiz!</p>
+        <h3>🎯 Maqsadimiz</h3>
+        <p>Bizning asosiy maqsadimiz — qishloq xo'jaligi xodimlari, fermerlar, mirob va suv xo'jaligi mutaxassislariga ariq va kichik kanallardagi suv sarfini (oqimini) tez va oson hisoblashda yordam berishdir.</p> 
+        
+        <p>Suv — tabiatning eng aziz ne'mati bo'lib, uni to'g'ri hisob-kitob qilish va samarali taqsimlash ekinlar unumdorligining asosidir.</p>
 
-        <h3 style="color: #0056b3;">🎯 Maqsadimiz</h3>
-        <p><strong>Bizning asosiy maqsadimiz</strong> — qishloq xo'jaligi xodimlari, fermerlar, mirob va suv xo'jaligi mutaxassislariga ariq va kichik kanallardagi suv sarfini (oqimini) tez va oson hisoblashda yordam berishdir. 
-        <p><strong>Suv</strong> — tabiatning eng aziz ne'mati bo'lib, uni to'g'ri hisob-kitob qilish va samarali taqsimlash ekinlar unumdorligining asosidir.</p>
+        <div class="highlight-box">
+            <h3>⚙️ Hisoblagich nima beradi?</h3>
+            <p style="margin-bottom: 0;">Ushbu hisoblagich orqali siz suvning oqish tezligi va boshqa gidravlik ko'rsatkichlarga asoslanib suv sarfini formulalar yordamida onlayn hisoblashingiz mumkin. Bu sizni murakkab qog'ozdagi va qiyin tushuniladigan hisob-kitoblardan butunlay xalos etadi.</p>
+        </div>
 
-        <h3 style="color: #0056b3;">⚙️ Hisoblagich nima beradi?</h3>
-        <p>Ushbu hisoblagich orqali siz suvning oqish tezligi va boshqa gidravlik ko'rsatkichlarga asoslanib suv sarfini formulalar yordamida onlayn hisoblashingiz mumkin. Bu sizni murakkab qog'ozdagi hisob-kitoblardan xalos etadi.</p>
-
-        <h3 style="color: #0056b3;">👥 Kimlar uchun foydali?</h3>
-        <ul>
-            <li><strong>Fermerlar va dehqonlar:</strong> Ekinlarni isrofgarchiliksiz sug'orish uchun.</li>
-            <li><strong>Gidrotexnik va muhandislar:</strong> Suv taqsimotini nazorat qilish uchun.</li>
+        <h3>👥 Kimlar uchun foydali?</h3>
+        <ul class="info-list">
+            <li><strong>Fermerlar va dehqonlar:</strong> Ekinlarni isrofgarchiliksiz va me'yorida sug'orish uchun.</li>
+            <li><strong>Gidrotexnik va muhandislar:</strong> Suv taqsimotini nazorat qilish va adolatli taqsimlash uchun.</li>
             <li><strong>Talabalar va yosh mutaxassislar:</strong> Sohadagi nazariy bilimlarni amaliyotda mustahkamlash uchun.</li>
         </ul>
         
-        <p><em>Biz bilan birga suvni to'g'ri boshqaring va kelajak uchun asrab qoling!</em></p>
-    </main>
+        <div class="footer-callout">
+            🌊 Biz bilan birga suvni to'g'ri boshqaring va kelajak uchun asrab qoling!
+        </div>
+    </article>
 
 </body>
-
 </html>
-
-
-
-
