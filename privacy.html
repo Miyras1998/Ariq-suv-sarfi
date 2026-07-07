@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Махфийлик сиёсати — ariqsuvsarfi.uz</title>
+  <meta name="description" content="Ariqsuvsarfi.uz сайтининг махфийлик сиёсати." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --teal-50:#f0fdfa; --teal-100:#ccfbf1; --teal-500:#14b8a6; --teal-600:#0d9488; --teal-700:#0f766e; --teal-800:#115e59;
+      --gray-50:#f8fafc; --gray-100:#f1f5f9; --gray-300:#e2e8f0; --gray-500:#64748b; --gray-700:#475569; --gray-900:#1e293b;
+      --white:#ffffff; --radius:12px; --max:760px; --amber-50:#fffbeb;
+    }
+    body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; background:linear-gradient(160deg,#f8fafc 0%,#f0fdfa 45%,#ecfdf5 100%); color:var(--gray-900); font-size:16px; line-height:1.75; -webkit-font-smoothing:antialiased; min-height:100vh; display:flex; flex-direction:column; }
+    a { color:var(--teal-700); text-decoration:none; } a:hover { text-decoration:underline; }
+    svg{display:block;flex-shrink:0;}
+
+    .notice-bar{background:var(--amber-50);border-bottom:1px solid #fde68a;color:#92400e;text-align:center;font-size:12.5px;font-weight:600;padding:7px 16px;}
+    .site-header{background:rgba(255,255,255,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--gray-300);position:sticky;top:0;z-index:30;}
+    .header-inner{max-width:var(--max);margin:0 auto;padding:0 20px;height:62px;display:flex;align-items:center;justify-content:space-between;gap:12px;}
+    .logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:16.5px;color:var(--teal-700);white-space:nowrap;}
+    .logo-dot{width:9px;height:9px;border-radius:50%;background:var(--teal-500);box-shadow:0 0 0 4px var(--teal-100);}
+    .main-nav{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;}
+    .main-nav::-webkit-scrollbar{display:none;}
+    .nav-link{display:flex;align-items:center;gap:6px;padding:9px 13px;border-radius:9px;font-size:12.5px;font-weight:700;color:var(--gray-700);white-space:nowrap;transition:.15s;text-decoration:none;}
+    .nav-link:hover{background:var(--teal-50);color:var(--teal-700);text-decoration:none;}
+    .nav-link.active{background:var(--teal-600);color:#fff;}
+    .nav-link svg{width:15px;height:15px;}
+    .nav-link.cta{background:var(--teal-700);color:#fff;margin-left:2px;}
+    @media(max-width:480px){ .header-inner{height:56px;} .nav-link span.txt{display:none;} .nav-link.cta span.txt{display:inline;} }
+
+    .page-hero { padding:40px 20px 30px; }
+    .page-hero .inner { max-width:var(--max); margin:0 auto; }
+    .page-hero .badge { display:inline-flex; align-items:center; gap:6px; font-size:12px; color:var(--teal-700); font-weight:700; letter-spacing:.04em; text-transform:uppercase; margin-bottom:10px; background:var(--teal-100); padding:6px 12px; border-radius:99px; }
+    .page-hero h1 { font-size:clamp(24px,5vw,34px); font-weight:800; color:var(--gray-900); line-height:1.2; }
+    .page-hero .meta { margin-top:8px; font-size:13px; color:var(--gray-500); }
+
+    .toc-wrap { max-width:var(--max); margin:0 auto; padding:0 20px; }
+    .toc { background:rgba(255,255,255,.9); border:1px solid var(--gray-300); border-radius:16px; padding:20px 24px; }
+    .toc-title { font-size:12px; font-weight:700; color:var(--gray-500); text-transform:uppercase; letter-spacing:.06em; margin-bottom:12px; }
+    .toc ol { padding-left:20px; margin:0; font-size:14px; line-height:2.1; }
+
+    main { flex-grow:1; max-width:var(--max); margin:0 auto; padding:32px 20px 60px; width:100%; }
+    .section { padding-top:36px; border-top:1px solid var(--gray-100); margin-top:36px; background:rgba(255,255,255,.7); border-radius:16px; }
+    .section:first-child { margin-top:0; border-top:none; padding-top:0; background:none; }
+    .section-inner{padding:0 26px 26px;}
+    .section:first-child .section-inner{padding:0;}
+    .section:not(:first-child) .section-num{padding-top:26px;margin-left:26px;}
+    .section-num { font-size:11px; font-weight:700; color:var(--teal-600); letter-spacing:.1em; text-transform:uppercase; margin-bottom:6px; }
+    .section h2 { font-size:clamp(17px,3.5vw,21px); font-weight:700; color:var(--gray-900); margin-bottom:14px; line-height:1.3; }
+    .section p { color:var(--gray-700); margin-bottom:12px; } .section p:last-child { margin-bottom:0; }
+    .section ul { padding-left:22px; color:var(--gray-700); margin-bottom:12px; } .section li { margin-bottom:7px; }
+    .info-box { background:var(--teal-50); border-left:4px solid var(--teal-600); border-radius:0 var(--radius) var(--radius) 0; padding:14px 18px; font-size:15px; color:var(--gray-700); margin-top:12px; }
+    .warn-box { background:#fff5f5; border-left:4px solid #e03131; border-radius:0 var(--radius) var(--radius) 0; padding:16px 18px; font-size:14px; color:#5c1a1a; margin-top:14px; line-height:1.75; }
+    .warn-box strong { color:#c92a2a; }
+
+    footer{width:100%;background:#fff;border-top:1px solid var(--gray-100);padding:32px 16px 26px;margin-top:20px;}
+    .footer-inner{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:26px;font-size:14px;}
+    .footer-brand{max-width:300px;}
+    .footer-brand-name{display:flex;align-items:center;gap:8px;color:var(--teal-600);font-weight:800;font-size:15px;margin-bottom:8px;}
+    .footer-dot{width:8px;height:8px;border-radius:50%;background:var(--teal-500);flex-shrink:0;}
+    .footer-brand p{color:var(--gray-500);font-size:12.5px;line-height:1.7;}
+    .footer-cols{display:grid;grid-template-columns:1fr 1fr;gap:28px;width:100%;}
+    .footer-cols h4{font-weight:700;color:var(--gray-700);font-size:13.5px;margin-bottom:9px;}
+    .footer-cols ul{list-style:none;display:flex;flex-direction:column;gap:7px;}
+    .footer-cols li{color:var(--gray-500);font-size:12.5px;}
+    .footer-cols a:hover{color:var(--teal-600);}
+    .footer-email{color:var(--gray-500);padding-top:2px;word-break:break-all;}
+    .footer-bottom{border-top:1px solid var(--gray-100);margin-top:6px;padding-top:16px;text-align:center;font-size:12px;color:var(--gray-500);}
+
+    @media(min-width:768px){ .footer-inner{flex-direction:row;justify-content:space-between;align-items:flex-start;} .footer-cols{width:auto;} }
+    @media(max-width:480px){ .page-hero{padding:28px 16px 22px;} main{padding:24px 16px 50px;} .toc-wrap{padding:0 16px;} .toc{padding:16px 18px;} }
+  .nav-link.cta{background:var(--teal-700);color:#fff;margin-left:2px;}
+.nav-link.cta:hover{background:var(--teal-800);}
+.nav-user-wrap{position:relative;}
+.nav-user-btn{display:flex;align-items:center;gap:7px;padding:7px 12px 7px 7px;border-radius:9px;background:var(--teal-700);color:#fff;border:none;font-family:inherit;font-size:12.5px;font-weight:700;cursor:pointer;white-space:nowrap;}
+.nav-user-btn:hover{background:var(--teal-800);}
+.nav-avatar{width:24px;height:24px;border-radius:50%;background:var(--teal-500);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;}
+.nav-dropdown{position:absolute;top:calc(100% + 6px);right:0;background:#fff;border:1px solid var(--slate-200);border-radius:12px;box-shadow:0 10px 25px -5px rgba(0,0,0,.15);min-width:180px;padding:6px;display:none;z-index:40;}
+.nav-dropdown.show{display:block;}
+.nav-dropdown-email{padding:8px 10px;font-size:11.5px;color:var(--slate-500);border-bottom:1px solid var(--slate-100);margin-bottom:4px;word-break:break-all;}
+.nav-dropdown button{width:100%;text-align:left;background:none;border:none;padding:8px 10px;border-radius:8px;font-family:inherit;font-size:13px;font-weight:600;color:#dc2626;cursor:pointer;}
+.nav-dropdown button:hover{background:#fef2f2;}
+@media(max-width:480px){ .nav-user-btn span.txt{max-width:70px;overflow:hidden;text-overflow:ellipsis;} }
+</style>
+</head>
+<body>
+
+<div class="notice-bar">⚠️ Сайт тест режимида ишламоқда — натижалар тахминий ҳисобланади</div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo"><span class="logo-dot"></span>ariqsuvsarfi.uz</a>
+    <nav class="main-nav">
+      <a href="index.html" class="nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+        <span class="txt">Бош саҳифа</span>
+      </a>
+      <a href="about.html" class="nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        <span class="txt">Биз ҳақимизда</span>
+      </a>
+      <a href="aloqa.html" class="nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        <span class="txt">Алоқа</span>
+      </a>
+      <a href="login.html" id="nav-login-link" class="nav-link cta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></svg>
+        <span class="txt">Кириш</span>
+      </a>
+      <div class="nav-user-wrap" id="nav-user-wrap" style="display:none;">
+        <button type="button" class="nav-user-btn" id="nav-user-btn">
+          <span class="nav-avatar" id="nav-avatar">?</span>
+          <span class="txt" id="nav-user-name">...</span>
+        </button>
+        <div class="nav-dropdown" id="nav-dropdown">
+          <div class="nav-dropdown-email" id="nav-dropdown-email"></div>
+          <button type="button" id="nav-logout-btn">Чиқиш</button>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="inner">
+    <div class="badge">⚖️ Ҳуқуқий ҳужжат</div>
+    <h1>Махфийлик сиёсати</h1>
+    <p class="meta">Охирги янгиланиш: 25-июн, 2026-йил</p>
+  </div>
+</div>
+
+<div class="toc-wrap">
+  <div class="toc">
+    <div class="toc-title">Мундарижа</div>
+    <ol>
+      <li><a href="#s1">Умумий қоидалар</a></li>
+      <li><a href="#s2">Йиғиладиган маълумотлар</a></li>
+      <li><a href="#s3">Маълумотлардан фойдаланиш мақсади</a></li>
+      <li><a href="#s4">Cookies (куки) файллари</a></li>
+      <li><a href="#s5">Учинчи томонлар</a></li>
+      <li><a href="#s6">Маълумотлар хавфсизлиги</a></li>
+      <li><a href="#s7">Болалар махфийлиги</a></li>
+      <li><a href="#s8">Фойдаланувчи ҳуқуқлари</a></li>
+      <li><a href="#s9">Жавобгарликдан озод қилиш</a></li>
+      <li><a href="#s10">Сиёсатга ўзгартиришлар</a></li>
+      <li><a href="#s11">Алоқа</a></li>
+    </ol>
+  </div>
+</div>
+
+<main>
+
+  <div class="section" id="s1"><div class="section-inner">
+    <div class="section-num">01</div>
+    <h2>Умумий қоидалар</h2>
+    <p>
+      Ушбу Махфийлик сиёсати <strong>ariqsuvsarfi.uz</strong> вебсайтидан
+      фойдаланувчиларнинг маълумотларини йиғиш, қайта ишлаш, сақлаш ва ҳимоя
+      қилиш тартибини белгилайди.
+    </p>
+    <div class="info-box">
+      Сайтдан фойдаланиш орқали сиз ушбу сиёсат шартларига розилик билдирасиз.
+    </div>
+  </div></div>
+
+  <div class="section" id="s2"><div class="section-inner">
+    <div class="section-num">02</div>
+    <h2>Йиғиладиган маълумотлар</h2>
+    <p>Сайт қуйидаги маълумотларни йиғиши мумкин:</p>
+    <ul>
+      <li>Техник маълумотлар: IP-манзил, браузер тури, қурилма тури, операцион тизим, кириш вақти.</li>
+      <li>Фойдаланувчи томонидан киритилган ҳисоб-китоб маълумотлари (сув сарфи кўрсаткичлари).</li>
+      <li>Cookies файллари орқали олинадиган фойдаланиш статистикаси.</li>
+    </ul>
+    <p>
+      Сайт исм, телефон рақами, паспорт маълумотлари ёки тўлов маълумотлари каби
+      <strong>шахсий идентификация маълумотларини йиғмайди</strong>.
+    </p>
+  </div></div>
+
+  <div class="section" id="s3"><div class="section-inner">
+    <div class="section-num">03</div>
+    <h2>Маълумотлардан фойдаланиш мақсади</h2>
+    <ul>
+      <li>Сайтнинг тўғри ишлашини таъминлаш.</li>
+      <li>Хизмат сифатини яхшилаш ва таҳлил қилиш.</li>
+      <li>Фойдаланувчи тажрибасини яхшилаш.</li>
+      <li>Статистик таҳлил ва аноним ҳисоботлар тайёрлаш.</li>
+      <li>Қонун талабларига мувофиқ жавоб бериш.</li>
+    </ul>
+  </div></div>
+
+  <div class="section" id="s4"><div class="section-inner">
+    <div class="section-num">04</div>
+    <h2>Cookies (куки) файллари</h2>
+    <p>
+      Сайт фойдаланувчи тажрибасини яхшилаш учун куки файлларидан фойдаланади.
+      Браузер созламалари орқали куки файлларини ўчириб қўйишингиз мумкин.
+    </p>
+    <p>
+      Сайт <strong>Google Analytics</strong> ва <strong>Google Ads</strong> каби
+      учинчи томон хизматларидан фойдаланиши мумкин. Бу хизматлар ўз куки
+      файлларини ўрнатади ва ўз махфийлик сиёсатига эга — сайт маъмурияти
+      уларнинг сиёсати учун жавобгар эмас.
+    </p>
+  </div></div>
+
+  <div class="section" id="s5"><div class="section-inner">
+    <div class="section-num">05</div>
+    <h2>Учинчи томонлар</h2>
+    <p>
+      Фойдаланувчи маълумотлари учинчи шахсларга сотилмайди, ижарага берилмайди
+      ва ошкор қилинмайди — қуйидаги ҳоллар бундан мустасно:
+    </p>
+    <ul>
+      <li>Фойдаланувчининг аниқ розилиги мавжуд бўлганда.</li>
+      <li>Ўзбекистон Республикаси қонунлари талаб қилганда.</li>
+      <li>Сайт хавфсизлигини таъминлаш ёки ҳуқуқбузарликларнинг олдини олиш мақсадида.</li>
+    </ul>
+  </div></div>
+
+  <div class="section" id="s6"><div class="section-inner">
+    <div class="section-num">06</div>
+    <h2>Маълумотлар хавфсизлиги</h2>
+    <p>
+      Сайт маълумотларни ҳимоя қилиш учун зарур техник чораларни кўради.
+    </p>
+    <div class="info-box">
+      🔒 Барча маълумотлар <strong>HTTPS (SSL)</strong> протоколи орқали шифрланган ҳолда узатилади.
+    </div>
+  </div></div>
+
+  <div class="section" id="s7"><div class="section-inner">
+    <div class="section-num">07</div>
+    <h2>Болалар махфийлиги</h2>
+    <p>
+      Сайт 13 ёшгача бўлган болалардан атайлаб маълумот йиғмайди. Агар бундай
+      маълумотлар йиғилгани аниқланса, улар дарҳол ўчириб ташланади.
+    </p>
+  </div></div>
+
+  <div class="section" id="s8"><div class="section-inner">
+    <div class="section-num">08</div>
+    <h2>Фойдаланувчи ҳуқуқлари</h2>
+    <ul>
+      <li>Ўзи ҳақидаги маълумотларга кириш ҳуқуқи.</li>
+      <li>Нотўғри маълумотларни тўғрилашни талаб қилиш ҳуқуқи.</li>
+      <li>Маълумотларини ўчиришни талаб қилиш ҳуқуқи.</li>
+      <li>Маълумотларини қайта ишлашга розилигини бекор қилиш ҳуқуқи.</li>
+    </ul>
+  </div></div>
+
+  <div class="section" id="s9"><div class="section-inner">
+    <div class="section-num">09</div>
+    <h2>Жавобгарликдан озод қилиш</h2>
+    <p>
+      Сайт ва унинг маъмурияти қуйидагилар учун <strong>ҳеч қандай жавобгарлик
+      тутмайди</strong>:
+    </p>
+
+    <div class="warn-box">
+      <strong>⚠️ Муҳим:</strong><br><br>
+      Сайтдаги ҳисоб-китоб натижалари <strong>фақат тахминий маълумот</strong>
+      сифатида қаралади. Улар расмий норматив ҳужжатлар ёки мутахассис
+      хулосасини алмаштира олмайди. Фойдаланувчи сайтдан <strong>ўз хавф-хатари
+      остида</strong> фойдаланади.
+    </div>
+
+    <ul style="margin-top:16px;">
+      <li>Ҳисоб-китоб натижалари асосида қабул қилинган ҳар қандай қарорлар ва уларнинг оқибатлари.</li>
+      <li>Фойдаланувчи нотўғри киритган маълумотлар сабабли олинган натижалар.</li>
+      <li>Сайт хизматининг вақтинча тўхташи ёки техник носозликлар.</li>
+      <li>Учинчи томон хизматлари (Google, реклама тармоқлари) орқали юзага келган муаммолар.</li>
+      <li>Ташқи омиллар (вирус, хакер ҳужуми) туфайли маълумот йўқотиш.</li>
+      <li>Сайтдаги ахборот асосида кўрилган ҳар қандай моддий ёки бошқа зарарлар.</li>
+    </ul>
+
+    <div class="warn-box" style="margin-top:16px;">
+      Сайтдан фойдаланиш орқали фойдаланувчи юқоридаги барча шартларни
+      <strong>тўлиқ қабул қилган</strong> деб ҳисобланади. Барча низолар
+      фақат <strong>музокара ва ўзаро келишув</strong> йўли билан ҳал қилинади.
+    </div>
+  </div></div>
+
+  <div class="section" id="s10"><div class="section-inner">
+    <div class="section-num">10</div>
+    <h2>Сиёсатга ўзгартиришлар</h2>
+    <p>
+      Сайт маъмурияти ушбу сиёсатга исталган вақтда ўзгартириш киритиш
+      ҳуқуқини ўзида сақлаб қолади. Барча ўзгартиришлар эълон қилинган
+      пайтдан бошлаб кучга киради.
+    </p>
+  </div></div>
+
+  <div class="section" id="s11"><div class="section-inner">
+    <div class="section-num">11</div>
+    <h2>Алоқа</h2>
+    <ul>
+      <li>Веб-сайт: <a href="https://ariqsuvsarfi.uz">ariqsuvsarfi.uz</a></li>
+      <li>Email: <a href="mailto:info@ariqsuvsarfi.uz">info@ariqsuvsarfi.uz</a></li>
+    </ul>
+  </div></div>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-brand-name"><span class="footer-dot"></span>ariqsuvsarfi.uz</div>
+      <p>Ариқ сув сарфини онлайн ҳисоблаш учун бепул калькулятор ва гидрометрия бўйича ўзбек тилидаги ресурс.</p>
+    </div>
+    <div class="footer-cols">
+      <div>
+        <h4>Саҳифалар</h4>
+        <ul>
+          <li><a href="index.html">Бош саҳифа</a></li>
+          <li><a href="index.html#qollanma">Йўриқнома</a></li>
+          <li><a href="about.html">Биз ҳақимизда</a></li>
+          <li><a href="aloqa.html">Алоқа</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Ҳужжатлар</h4>
+        <ul>
+          <li><a href="privacy.html">Махфийлик сиёсати</a></li>
+          <li><a href="terms.html">Фойдаланиш шартлари</a></li>
+          <li class="footer-email">info@ariqsuvsarfi.uz</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">© <span id="year"></span> ariqsuvsarfi.uz — Барча ҳуқуқлар ҳимояланган.</div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+<script type="module">
+  import { initializeApp, getApps } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+  import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDAASP0w2jdXToVVFBfgAsiBOrR3Lz8-z0",
+    authDomain: "ariqsuvsarfiuz.firebaseapp.com",
+    projectId: "ariqsuvsarfiuz",
+    storageBucket: "ariqsuvsarfiuz.firebasestorage.app",
+    messagingSenderId: "491723654197",
+    appId: "1:491723654197:web:e28be59fc949ea1c4cdd7c",
+    measurementId: "G-SRYYKXYKZH"
+  };
+
+  const app = getApps().length ? getApps()[0] : initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  window.__auth = auth;
+  window.__signOut = signOut;
+
+  function updateNavAuthUI(user) {
+    const loginLink = document.getElementById('nav-login-link');
+    const userWrap = document.getElementById('nav-user-wrap');
+    if (!loginLink || !userWrap) return;
+    if (user) {
+      loginLink.style.display = 'none';
+      userWrap.style.display = '';
+      const name = user.displayName || (user.email ? user.email.split('@')[0] : 'Фойдаланувчи');
+      const nameEl = document.getElementById('nav-user-name');
+      const avatarEl = document.getElementById('nav-avatar');
+      const emailEl = document.getElementById('nav-dropdown-email');
+      if (nameEl) nameEl.textContent = name;
+      if (avatarEl) avatarEl.textContent = name.charAt(0).toUpperCase();
+      if (emailEl) emailEl.textContent = user.email || '';
+    } else {
+      loginLink.style.display = '';
+      userWrap.style.display = 'none';
+      document.getElementById('nav-dropdown')?.classList.remove('show');
+    }
+  }
+
+  document.getElementById('nav-user-btn')?.addEventListener('click', function (e) {
+    e.stopPropagation();
+    document.getElementById('nav-dropdown').classList.toggle('show');
+  });
+  document.addEventListener('click', function () {
+    document.getElementById('nav-dropdown')?.classList.remove('show');
+  });
+  document.getElementById('nav-logout-btn')?.addEventListener('click', async function () {
+    try { await signOut(auth); } catch (e) {}
+    window.location.href = 'index.html';
+  });
+
+  onAuthStateChanged(auth, updateNavAuthUI);
+</script>
+</body>
+</html>
