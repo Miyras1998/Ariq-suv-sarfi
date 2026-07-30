@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+<meta name="theme-color" content="#163258">
+<title>Ҳовуз ва резервуар ҳажми калькулятори — ariqsuvsarfi.uz</title>
+<meta name="description" content="Тўғри бурчакли ва думалоқ (цилиндрсимон) ҳовуз, резервуар, сув омбори ҳажмини онлайн ҳисоблаш калькулятори — литр ва куб метрда.">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Ariqsuvsarfi">
+<link rel="canonical" href="https://ariqsuvsarfi.uz/hajm.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ariqsuvsarfi.uz/hajm.html">
+<meta property="og:title" content="Ҳовуз ва резервуар ҳажми калькулятори — ariqsuvsarfi.uz">
+<meta property="og:description" content="Тўғри бурчакли ва думалоқ ҳовуз, резервуар ҳажмини онлайн ҳисобланг.">
+<meta property="og:locale" content="uz_UZ">
+<meta property="og:site_name" content="ariqsuvsarfi.uz">
+<style>
+:root{
+  --navy-50:#eef2f7; --navy-100:#dde6f0; --navy-500:#2c5aa0; --navy-600:#1e4176; --navy-700:#163258; --navy-800:#0f2340;
+  --slate-50:#f8fafc; --slate-100:#f1f5f9; --slate-200:#e2e8f0; --slate-400:#94a3b8; --slate-500:#64748b; --slate-600:#475569; --slate-700:#334155; --slate-800:#1e293b;
+  --red-500:#ef4444; --red-600:#dc2626; --amber-500:#f59e0b; --amber-50:#fffbeb;
+  --radius:3px; --max:1080px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{-webkit-text-size-adjust:100%;}
+body{font-family:Arial,"Helvetica Neue",Helvetica,sans-serif;background:#f4f5f7;color:var(--slate-800);min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;line-height:1.6;}
+a{color:inherit;text-decoration:none;}
+svg{display:block;flex-shrink:0;}
+
+.notice-bar{background:var(--amber-50);border-bottom:1px solid #fde68a;color:#92400e;text-align:center;font-size:12.5px;font-weight:600;padding:7px 16px;}
+.site-header{background:var(--navy-700);border-bottom:3px solid var(--navy-800);position:sticky;top:0;z-index:30;}
+.header-inner{max-width:var(--max);margin:0 auto;padding:0 20px;height:60px;display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.logo{display:flex;align-items:center;gap:8px;font-weight:700;font-size:16px;color:#fff;white-space:nowrap;flex-shrink:0;}
+.logo-dot{width:8px;height:8px;border-radius:50%;background:#fff;}
+.main-nav{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;min-width:44px;flex-shrink:1;}
+.main-nav::-webkit-scrollbar{display:none;}
+.nav-link{display:flex;align-items:center;gap:6px;padding:9px 13px;border-radius:2px;font-size:12.5px;font-weight:700;color:#dbe4f0;white-space:nowrap;transition:.15s;}
+.nav-link:hover{background:var(--navy-800);color:#fff;}
+.nav-link.active{background:var(--navy-800);color:#fff;border-bottom:2px solid #fff;}
+.nav-link svg{width:15px;height:15px;}
+.nav-link.cta{background:#fff;color:var(--navy-700);margin-left:2px;font-weight:700;}
+.nav-link.cta:hover{background:var(--navy-50);}
+.header-actions{display:flex;align-items:center;gap:2px;flex-shrink:0;}
+.nav-user-wrap{position:relative;}
+.nav-user-btn{display:flex;align-items:center;gap:7px;padding:7px 12px 7px 7px;border-radius:2px;background:#fff;color:var(--navy-700);border:none;font-family:inherit;font-size:12.5px;font-weight:700;cursor:pointer;white-space:nowrap;}
+.nav-user-btn:hover{background:var(--navy-50);}
+.nav-avatar{width:22px;height:22px;border-radius:50%;background:var(--navy-600);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;}
+.nav-dropdown{position:absolute;top:calc(100% + 4px);right:0;background:#fff;border:1px solid var(--slate-200);border-radius:2px;box-shadow:0 4px 10px rgba(0,0,0,.12);min-width:180px;padding:4px;display:none;z-index:40;}
+.nav-dropdown.show{display:block;}
+.nav-dropdown-email{padding:8px 10px;font-size:11.5px;color:var(--slate-500);border-bottom:1px solid var(--slate-100);margin-bottom:4px;word-break:break-all;}
+.nav-dropdown button{width:100%;text-align:left;background:none;border:none;padding:8px 10px;border-radius:2px;font-family:inherit;font-size:13px;font-weight:600;color:#dc2626;cursor:pointer;}
+.nav-dropdown button:hover{background:#fef2f2;}
+@media(max-width:480px){ .nav-user-btn span.txt{max-width:70px;overflow:hidden;text-overflow:ellipsis;} }
+
+.lang-switch{position:relative;margin-right:4px;}
+.lang-current{display:flex;align-items:center;gap:6px;background:var(--navy-800);border:1px solid rgba(255,255,255,.25);font-family:inherit;font-size:12px;font-weight:700;color:#fff;padding:7px 10px;border-radius:2px;cursor:pointer;}
+.lang-current:hover{border-color:rgba(255,255,255,.45);}
+.lang-flag{width:18px;height:13px;border-radius:1px;overflow:hidden;flex-shrink:0;box-shadow:0 0 0 1px rgba(0,0,0,.15);}
+.lang-flag svg{width:100%;height:100%;display:block;}
+.lang-chevron{width:11px;height:11px;flex-shrink:0;transition:transform .15s;}
+.lang-switch.open .lang-chevron{transform:rotate(180deg);}
+.lang-menu{position:absolute;top:calc(100% + 4px);right:0;background:#fff;border:1px solid var(--slate-200);border-radius:2px;box-shadow:0 4px 10px rgba(0,0,0,.12);min-width:170px;padding:4px;display:none;z-index:45;}
+.lang-switch.open .lang-menu{display:block;}
+.lang-option{display:flex;align-items:center;gap:9px;width:100%;text-align:left;background:none;border:none;padding:9px 10px;border-radius:2px;font-family:inherit;font-size:13px;font-weight:600;color:var(--slate-700);cursor:pointer;}
+.lang-option:hover{background:var(--slate-50);}
+.lang-option.active{background:var(--navy-50);color:var(--navy-700);}
+.lang-option .lang-flag{width:20px;height:15px;}
+
+.bottom-nav{display:none;}
+@media(max-width:640px){
+  .main-nav{display:none;}
+  body{padding-bottom:66px;}
+  .bottom-nav{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:50;background:#fff;border-top:1px solid var(--slate-200);padding-bottom:env(safe-area-inset-bottom);}
+  .bn-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:9px 2px 7px;color:var(--slate-500);font-size:10.5px;font-weight:700;text-decoration:none;text-align:center;line-height:1.15;}
+  .bn-item svg{width:21px;height:21px;}
+  .bn-item.active{color:var(--navy-600);}
+}
+
+.hero{max-width:var(--max);margin:0 auto;padding:36px 20px 8px;text-align:center;}
+.eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--navy-700);background:var(--navy-50);border:1px solid var(--navy-100);padding:5px 12px;border-radius:2px;margin-bottom:14px;}
+.hero h1{font-size:clamp(22px,4vw,32px);font-weight:700;letter-spacing:-.01em;color:var(--slate-800);line-height:1.25;max-width:680px;margin:0 auto;}
+.hero h1 span{color:var(--navy-600);}
+.hero p.lead{max-width:560px;margin:14px auto 0;color:var(--slate-500);font-size:15px;}
+
+main{flex-grow:1;}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px;}
+.card{background:#fff;border:1px solid var(--slate-200);border-radius:var(--radius);box-shadow:none;}
+
+.calc-tabs{display:flex;gap:8px;max-width:var(--max);margin:28px auto 0;padding:0 20px;}
+.calc-tab{flex:1;padding:12px 16px;border-radius:2px;font-family:inherit;font-weight:700;font-size:13.5px;background:#fff;color:var(--slate-600);cursor:pointer;border:1px solid var(--slate-200);}
+.calc-tab.active{background:var(--navy-600);color:#fff;border-color:var(--navy-600);}
+
+.calc-section{margin:16px auto 0;padding:26px;display:none;}
+.calc-section.active{display:block;}
+.calc-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:32px;}
+.diagram-box{background:var(--slate-50);border:1px solid var(--slate-100);border-radius:var(--radius);padding:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;}
+.diagram-caption{font-size:12.5px;color:var(--slate-600);text-align:center;line-height:1.8;}
+.diagram-caption b{color:var(--navy-700);}
+
+.field-label{display:block;font-size:12px;font-weight:700;color:var(--slate-600);margin-bottom:5px;}
+.field-hint{font-size:11px;color:var(--slate-400);font-weight:500;margin-left:4px;}
+.form-grid input{width:100%;padding:11px 13px;background:#fff;border:1px solid var(--slate-200);border-radius:2px;color:var(--slate-800);font-family:inherit;font-size:15px;transition:.15s;}
+.form-grid input:focus{outline:none;border-color:var(--navy-500);box-shadow:0 0 0 2px rgba(44,90,160,.15);}
+.form-row{margin-bottom:14px;}
+.submit-btn{width:100%;padding:13px 16px;background:var(--navy-600);color:#fff;font-family:inherit;font-weight:700;font-size:15px;border:none;border-radius:2px;box-shadow:none;cursor:pointer;margin-top:6px;transition:.15s;}
+.submit-btn:hover{background:var(--navy-700);}
+.submit-btn:active{transform:none;}
+.result-box{margin-top:16px;background:var(--slate-50);border:1px solid var(--slate-200);border-left:3px solid var(--navy-600);border-radius:2px;padding:14px 16px;font-size:14px;font-weight:600;color:var(--navy-800);line-height:1.9;}
+.result-box .err{color:var(--red-600);}
+.note-line{font-size:12.5px;color:var(--slate-500);margin-top:8px;}
+
+.guide-section{margin:36px auto 0;padding:30px;}
+.guide-section h2{font-size:clamp(18px,3vw,22px);font-weight:700;color:var(--slate-800);margin-bottom:14px;}
+.guide-section p{color:var(--slate-600);margin-bottom:12px;font-size:15px;}
+.formula-box{background:var(--navy-700);color:#fff;border-radius:2px;padding:18px 24px;font-size:20px;font-weight:700;letter-spacing:.02em;margin:18px 0;text-align:center;}
+
+footer{width:100%;background:var(--navy-800);border-top:none;padding:32px 16px 26px;margin-top:56px;}
+.footer-inner{max-width:var(--max);margin:0 auto;display:flex;flex-direction:column;gap:26px;font-size:14px;}
+.footer-brand{max-width:300px;}
+.footer-brand-name{display:flex;align-items:center;gap:8px;color:#fff;font-weight:700;font-size:15px;margin-bottom:8px;}
+.footer-dot{width:8px;height:8px;border-radius:50%;background:#fff;flex-shrink:0;}
+.footer-brand p{color:#a9b7cc;font-size:12.5px;line-height:1.7;}
+.footer-cols{display:grid;grid-template-columns:1fr 1fr;gap:28px;width:100%;}
+.footer-cols h4{font-weight:700;color:#fff;font-size:13.5px;margin-bottom:9px;}
+.footer-cols ul{list-style:none;display:flex;flex-direction:column;gap:7px;}
+.footer-cols li{color:#a9b7cc;font-size:12.5px;}
+.footer-cols a:hover{color:#fff;}
+.footer-email{color:#a9b7cc;padding-top:2px;word-break:break-all;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.15);margin-top:6px;padding-top:16px;text-align:center;font-size:12px;color:#a9b7cc;}
+@media(min-width:768px){ .footer-inner{flex-direction:row;justify-content:space-between;align-items:flex-start;} .footer-cols{width:auto;} }
+@media(max-width:860px){ .calc-grid{grid-template-columns:1fr;} }
+@media(max-width:480px){ .calc-section{padding:18px;} .hero{padding:24px 16px 6px;} .calc-tabs{padding:0 16px;} }
+</style>
+</head>
+<body>
+
+<div class="notice-bar" data-i18n="notice_bar">⚠️ Сайт тест режимида ишламоқда — натижалар тахминий ҳисобланади</div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo"><span class="logo-dot"></span>ariqsuvsarfi.uz</a>
+    <nav class="main-nav">
+      <a href="index.html" class="nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+        <span class="txt" data-i18n="nav_home">Бош саҳифа</span>
+      </a>
+      <a href="hajm.html" class="nav-link active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><path d="M18 8v10"></path><path d="M13 12v6"></path><path d="M8 15v3"></path></svg>
+        <span class="txt">Ҳажм калькулятори</span>
+      </a>
+      <a href="about.html" class="nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        <span class="txt" data-i18n="nav_about">Биз ҳақимизда</span>
+      </a>
+      <a href="aloqa.html" class="nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        <span class="txt" data-i18n="nav_contact">Алоқа</span>
+      </a>
+    </nav>
+    <div class="header-actions">
+      <div class="lang-switch" id="lang-switch">
+        <button type="button" class="lang-current" id="lang-current">
+          <span class="lang-flag" id="lang-current-flag"></span>
+          <span id="lang-current-code">UZ</span>
+          <svg class="lang-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="lang-menu" id="lang-menu">
+          <button type="button" class="lang-option" data-lang="uz">
+            <span class="lang-flag"><svg viewBox="0 0 30 20"><rect width="30" height="20" fill="#fff"/><rect width="30" height="6" fill="#0099b5"/><rect width="30" height="6" y="14" fill="#1eb53a"/><rect width="30" height="1" y="6" fill="#ce1126"/><rect width="30" height="1" y="13" fill="#ce1126"/><circle cx="5" cy="3" r="2" fill="#fff"/><circle cx="5.8" cy="3" r="1.7" fill="#0099b5"/><circle cx="9" cy="1.6" r="0.45" fill="#fff"/><circle cx="11" cy="1.6" r="0.45" fill="#fff"/><circle cx="9" cy="3" r="0.45" fill="#fff"/><circle cx="11" cy="3" r="0.45" fill="#fff"/><circle cx="9" cy="4.4" r="0.45" fill="#fff"/><circle cx="11" cy="4.4" r="0.45" fill="#fff"/></svg></span>
+            <span>O'zbekcha</span>
+          </button>
+          <button type="button" class="lang-option" data-lang="ru">
+            <span class="lang-flag"><svg viewBox="0 0 30 20"><rect width="30" height="6.67" fill="#fff"/><rect width="30" height="6.67" y="6.67" fill="#0039a6"/><rect width="30" height="6.67" y="13.33" fill="#d52b1e"/></svg></span>
+            <span>Русский</span>
+          </button>
+          <button type="button" class="lang-option" data-lang="qq">
+            <span class="lang-flag"><svg viewBox="0 0 30 20"><rect width="30" height="20" fill="#fff"/><rect width="30" height="8" fill="#00aeef"/><rect width="30" height="8" y="12" fill="#00953b"/><rect width="30" height="1" y="8" fill="#a6192e"/><rect width="30" height="1" y="11" fill="#a6192e"/><circle cx="5" cy="4" r="2" fill="#fff"/><circle cx="5.8" cy="4" r="1.7" fill="#00aeef"/><circle cx="9" cy="2.3" r="0.42" fill="#fff"/><circle cx="9" cy="5.7" r="0.42" fill="#fff"/><circle cx="11" cy="1.2" r="0.42" fill="#fff"/><circle cx="11" cy="6.8" r="0.42" fill="#fff"/><circle cx="12.6" cy="4" r="0.42" fill="#fff"/></svg></span>
+            <span>Qaraqalpaqsha</span>
+          </button>
+          <button type="button" class="lang-option" data-lang="en">
+            <span class="lang-flag"><svg viewBox="0 0 30 20"><rect width="30" height="20" fill="#00247d"/><path d="M0,0 L30,20 M30,0 L0,20" stroke="#fff" stroke-width="4"/><path d="M0,0 L30,20 M30,0 L0,20" stroke="#cf142b" stroke-width="1.5"/><path d="M15,0 V20 M0,10 H30" stroke="#fff" stroke-width="6.5"/><path d="M15,0 V20 M0,10 H30" stroke="#cf142b" stroke-width="3"/></svg></span>
+            <span>English</span>
+          </button>
+        </div>
+      </div>
+      <a href="login.html" id="nav-login-link" class="nav-link cta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></svg>
+        <span class="txt" data-i18n="nav_login">Кириш</span>
+      </a>
+      <div class="nav-user-wrap" id="nav-user-wrap" style="display:none;">
+        <button type="button" class="nav-user-btn" id="nav-user-btn">
+          <span class="nav-avatar" id="nav-avatar">?</span>
+          <span class="txt" id="nav-user-name">...</span>
+        </button>
+        <div class="nav-dropdown" id="nav-dropdown">
+          <div class="nav-dropdown-email" id="nav-dropdown-email"></div>
+          <button type="button" id="nav-logout-btn" data-i18n="nav_logout">Чиқиш</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="bottom-nav" id="bottom-nav">
+  <a href="index.html" class="bn-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+    <span data-i18n="nav_home">Бош саҳифа</span>
+  </a>
+  <a href="hajm.html" class="bn-item active">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><path d="M18 8v10"></path><path d="M13 12v6"></path><path d="M8 15v3"></path></svg>
+    <span data-i18n="nav_volume_short">Ҳажм</span>
+  </a>
+  <a href="about.html" class="bn-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+    <span data-i18n="nav_about">Биз ҳақимизда</span>
+  </a>
+  <a href="aloqa.html" class="bn-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+    <span data-i18n="nav_contact">Алоқа</span>
+  </a>
+</nav>
+
+<main>
+  <div class="hero">
+    <div class="eyebrow" data-i18n="hajm_eyebrow">Ҳажм калькулятори</div>
+    <h1 data-i18n-html="hajm_h1">Ҳовуз ва резервуар ҳажмини <span>бир неча сония</span>ичида ҳисобланг</h1>
+    <p class="lead" data-i18n="hajm_lead">Тўғри бурчакли ёки думалоқ (цилиндрсимон) ҳовуз, сув омбори, резервуар ҳажмини литр ва куб метрда аниқланг.</p>
+  </div>
+
+  <div class="calc-tabs">
+    <button class="calc-tab active" id="tab-rect" onclick="switchTab('rect')" data-i18n="hajm_tab_rect">▭ Тўғри бурчакли ҳовуз</button>
+    <button class="calc-tab" id="tab-cyl" onclick="switchTab('cyl')" data-i18n="hajm_tab_cyl">⬤ Думалоқ (цилиндрсимон)</button>
+  </div>
+
+  <div class="wrap">
+
+    <section class="calc-section card active" id="section-rect">
+      <div class="calc-grid">
+        <div class="diagram-box">
+          <svg viewBox="0 0 220 170" width="100%" style="max-width:260px">
+            <defs>
+              <linearGradient id="wg1" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#7ba3d6"/><stop offset="100%" stop-color="#1e4176"/>
+              </linearGradient>
+            </defs>
+            <polygon points="30,40 160,40 190,60 60,60" fill="none" stroke="#163258" stroke-width="2.5"/>
+            <polygon points="30,40 30,130 60,150 60,60" fill="none" stroke="#163258" stroke-width="2.5"/>
+            <polygon points="160,40 190,60 190,150 160,130" fill="none" stroke="#163258" stroke-width="2.5"/>
+            <polygon points="30,130 160,130 190,150 60,150" fill="none" stroke="#163258" stroke-width="2.5"/>
+            <polygon points="60,60 190,60 190,150 60,150" fill="url(#wg1)" opacity="0.85"/>
+            <text x="95" y="35" text-anchor="middle" font-size="13" font-weight="700" fill="#163258">L (узунлик)</text>
+            <text x="10" y="100" text-anchor="middle" font-size="13" font-weight="700" fill="#163258" transform="rotate(-90 10 100)">H (баландлик)</text>
+            <text x="220" y="105" text-anchor="middle" font-size="12" font-weight="700" fill="#083344" transform="rotate(-90 220 105)">B (кенглик)</text>
+          </svg>
+          <p class="diagram-caption"><b>L</b> — узунлик · <b>B</b> — кенглик · <b>H</b> — сув баландлиги (чуқурлиги)</p>
+        </div>
+
+        <div class="form-box">
+          <div class="form-grid">
+            <div class="form-row">
+              <label class="field-label"><span data-i18n="hajm_field_l">L — Узунлик</span> <span class="field-hint" data-i18n="unit_m">(метр)</span></label>
+              <input type="number" id="rect-l" step="0.01" placeholder="масалан: 4">
+            </div>
+            <div class="form-row">
+              <label class="field-label"><span data-i18n="hajm_field_b">B — Кенглик</span> <span class="field-hint" data-i18n="unit_m">(метр)</span></label>
+              <input type="number" id="rect-b" step="0.01" placeholder="масалан: 2.5">
+            </div>
+            <div class="form-row">
+              <label class="field-label"><span data-i18n="hajm_field_h">H — Сув баландлиги</span> <span class="field-hint" data-i18n="unit_m">(метр)</span></label>
+              <input type="number" id="rect-h" step="0.01" placeholder="масалан: 1.2">
+            </div>
+            <button class="submit-btn" onclick="hisoblaRect()" data-i18n="btn_calculate">Ҳисоблаш</button>
+            <div class="result-box" id="result-rect" data-i18n="result_placeholder">Натижалар шу ерда чиқади</div>
+            <p class="note-line" data-i18n="hajm_note_rect">1 м³ = 1000 литр. Натижа сув тўлиқ тўлдирилган ҳолат учун ҳисобланади.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="calc-section card" id="section-cyl">
+      <div class="calc-grid">
+        <div class="diagram-box">
+          <svg viewBox="0 0 220 170" width="100%" style="max-width:220px">
+            <defs>
+              <linearGradient id="wg2" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#7ba3d6"/><stop offset="100%" stop-color="#1e4176"/>
+              </linearGradient>
+            </defs>
+            <ellipse cx="110" cy="45" rx="65" ry="18" fill="none" stroke="#163258" stroke-width="2.5"/>
+            <line x1="45" y1="45" x2="45" y2="140" stroke="#163258" stroke-width="2.5"/>
+            <line x1="175" y1="45" x2="175" y2="140" stroke="#163258" stroke-width="2.5"/>
+            <path d="M45,140 A65,18 0 0 0 175,140" fill="none" stroke="#163258" stroke-width="2.5"/>
+            <path d="M45,65 A65,18 0 0 0 175,65 L175,140 A65,18 0 0 1 45,140 Z" fill="url(#wg2)" opacity="0.85"/>
+            <ellipse cx="110" cy="65" rx="65" ry="18" fill="none" stroke="#163258" stroke-width="1.5" stroke-dasharray="3,2"/>
+            <line x1="45" y1="45" x2="175" y2="45" stroke="#163258" stroke-width="1"/>
+            <text x="110" y="30" text-anchor="middle" font-size="13" font-weight="700" fill="#163258">D (диаметр)</text>
+            <text x="205" y="95" text-anchor="middle" font-size="13" font-weight="700" fill="#163258" transform="rotate(-90 205 95)">H (баландлик)</text>
+          </svg>
+          <p class="diagram-caption"><b>D</b> — думалоқ ҳовузнинг диаметри · <b>H</b> — сув баландлиги (чуқурлиги)</p>
+        </div>
+
+        <div class="form-box">
+          <div class="form-grid">
+            <div class="form-row">
+              <label class="field-label"><span data-i18n="hajm_field_d">D — Диаметр</span> <span class="field-hint" data-i18n="unit_m">(метр)</span></label>
+              <input type="number" id="cyl-d" step="0.01" placeholder="масалан: 3">
+            </div>
+            <div class="form-row">
+              <label class="field-label">H — Сув баландлиги <span class="field-hint">(метр)</span></label>
+              <input type="number" id="cyl-h" step="0.01" placeholder="масалан: 1.5">
+            </div>
+            <button class="submit-btn" onclick="hisoblaCyl()" data-i18n="btn_calculate">Ҳисоблаш</button>
+            <div class="result-box" id="result-cyl" data-i18n="result_placeholder">Натижалар шу ерда чиқади</div>
+            <p class="note-line" data-i18n="hajm_note_cyl">1 м³ = 1000 литр. Формула: V = π × (D/2)² × H</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="guide-section card">
+      <h2 data-i18n="hajm_guide_h1">Ҳовуз ҳажми қандай ҳисобланади?</h2>
+      <p data-i18n-html="hajm_guide_p1"><b>Тўғри бурчакли ҳовуз</b> учун ҳажм — узунлик, кенглик ва баландликнинг кўпайтмаси:</p>
+      <div class="formula-box">V = L × B × H</div>
+      <p data-i18n-html="hajm_guide_p2"><b>Думалоқ (цилиндрсимон) ҳовуз</b> учун ҳажм — асос юзаси (доира) баландликка кўпайтирилади:</p>
+      <div class="formula-box">V = π × (D/2)² × H</div>
+      <p data-i18n="hajm_guide_p3">Бу калькулятор сув омборлари, чорва учун сув ҳовузлари, суғориш резервуарлари ва бошқа сув сиғимларини лойиҳалашда фойдали бўлади.</p>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-brand-name"><span class="footer-dot"></span>ariqsuvsarfi.uz</div>
+      <p data-i18n="footer_desc">Ариқ сув сарфини онлайн ҳисоблаш учун бепул калькулятор ва гидрометрия бўйича ўзбек тилидаги ресурс.</p>
+    </div>
+    <div class="footer-cols">
+      <div>
+        <h4 data-i18n="footer_pages">Саҳифалар</h4>
+        <ul>
+          <li><a href="index.html" data-i18n="nav_home">Бош саҳифа</a></li>
+          <li><a href="hajm.html" data-i18n="nav_volume">Ҳажм калькулятори</a></li>
+          <li><a href="about.html" data-i18n="nav_about">Биз ҳақимизда</a></li>
+          <li><a href="aloqa.html" data-i18n="nav_contact">Алоқа</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer_docs">Ҳужжатлар</h4>
+        <ul>
+          <li><a href="privacy.html" data-i18n="footer_privacy">Махфийлик сиёсати</a></li>
+          <li><a href="terms.html" data-i18n="footer_terms">Фойдаланиш шартлари</a></li>
+          <li class="footer-email">info@ariqsuvsarfi.uz</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom"><span data-i18n="footer_copyright_pre">©</span> <span id="year"></span> ariqsuvsarfi.uz — <span data-i18n="footer_copyright_post">Барча ҳуқуқлар ҳимояланган.</span></div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+const I18N = {
+uz: {
+  notice_bar: "⚠️ Сайт тест режимида ишламоқда — натижалар тахминий ҳисобланади",
+  nav_home: "Бош саҳифа", nav_volume: "Ҳажм калькулятори", nav_volume_short: "Ҳажм", nav_about: "Биз ҳақимизда", nav_contact: "Алоқа", nav_login: "Кириш",
+  nav_logout: "Чиқиш",
+  footer_desc: "Ариқ сув сарфини онлайн ҳисоблаш учун бепул калькулятор ва гидрометрия бўйича ўзбек тилидаги ресурс.",
+  footer_pages: "Саҳифалар", footer_docs: "Ҳужжатлар", footer_privacy: "Махфийлик сиёсати", footer_terms: "Фойдаланиш шартлари",
+  footer_copyright_pre: "©", footer_copyright_post: "Барча ҳуқуқлар ҳимояланган.",
+  hajm_eyebrow: "Ҳажм калькулятори",
+  hajm_h1: "Ҳовуз ва резервуар ҳажмини <span>бир неча сония</span>ичида ҳисобланг",
+  hajm_lead: "Тўғри бурчакли ёки думалоқ (цилиндрсимон) ҳовуз, сув омбори, резервуар ҳажмини литр ва куб метрда аниқланг.",
+  hajm_tab_rect: "▭ Тўғри бурчакли ҳовуз", hajm_tab_cyl: "⬤ Думалоқ (цилиндрсимон)",
+  hajm_field_l: "L — Узунлик", hajm_field_b: "B — Кенглик", hajm_field_h: "H — Сув баландлиги", hajm_field_d: "D — Диаметр",
+  unit_m: "(метр)", btn_calculate: "Ҳисоблаш", result_placeholder: "Натижалар шу ерда чиқади",
+  hajm_note_rect: "1 м³ = 1000 литр. Натижа сув тўлиқ тўлдирилган ҳолат учун ҳисобланади.",
+  hajm_note_cyl: "1 м³ = 1000 литр. Формула: V = π × (D/2)² × H",
+  hajm_guide_h1: "Ҳовуз ҳажми қандай ҳисобланади?",
+  hajm_guide_p1: "<b>Тўғри бурчакли ҳовуз</b> учун ҳажм — узунлик, кенглик ва баландликнинг кўпайтмаси:",
+  hajm_guide_p2: "<b>Думалоқ (цилиндрсимон) ҳовуз</b> учун ҳажм — асос юзаси (доира) баландликка кўпайтирилади:",
+  hajm_guide_p3: "Бу калькулятор сув омборлари, чорва учун сув ҳовузлари, суғориш резервуарлари ва бошқа сув сиғимларини лойиҳалашда фойдали бўлади.",
+  err_fill: "Илтимос, барча қийматларни тўғри киритинг!",
+  result_volume_label: "Ҳажм", result_liters_label: "литр"
+},
+ru: {
+  notice_bar: "⚠️ Сайт работает в тестовом режиме — результаты являются приблизительными",
+  nav_home: "Главная", nav_volume: "Калькулятор объёма", nav_volume_short: "Объём", nav_about: "О нас", nav_contact: "Контакты", nav_login: "Войти",
+  nav_logout: "Выйти",
+  footer_desc: "Бесплатный онлайн-калькулятор расхода воды в арыках и ресурс по гидрометрии на узбекском языке.",
+  footer_pages: "Страницы", footer_docs: "Документы", footer_privacy: "Политика конфиденциальности", footer_terms: "Условия использования",
+  footer_copyright_pre: "©", footer_copyright_post: "Все права защищены.",
+  hajm_eyebrow: "Калькулятор объёма",
+  hajm_h1: "Рассчитайте объём бассейна и резервуара <span>за несколько секунд</span>",
+  hajm_lead: "Определите объём прямоугольного или круглого (цилиндрического) бассейна, водохранилища, резервуара в литрах и кубометрах.",
+  hajm_tab_rect: "▭ Прямоугольный бассейн", hajm_tab_cyl: "⬤ Круглый (цилиндрический)",
+  hajm_field_l: "L — Длина", hajm_field_b: "B — Ширина", hajm_field_h: "H — Высота воды", hajm_field_d: "D — Диаметр",
+  unit_m: "(метр)", btn_calculate: "Рассчитать", result_placeholder: "Результаты появятся здесь",
+  hajm_note_rect: "1 м³ = 1000 литров. Расчёт для полностью заполненного состояния.",
+  hajm_note_cyl: "1 м³ = 1000 литров. Формула: V = π × (D/2)² × H",
+  hajm_guide_h1: "Как рассчитывается объём бассейна?",
+  hajm_guide_p1: "Объём <b>прямоугольного бассейна</b> — произведение длины, ширины и высоты:",
+  hajm_guide_p2: "Объём <b>круглого (цилиндрического) бассейна</b> — площадь основания (круга), умноженная на высоту:",
+  hajm_guide_p3: "Этот калькулятор полезен при проектировании водохранилищ, поилок для скота, ирригационных резервуаров и других ёмкостей для воды.",
+  err_fill: "Пожалуйста, введите все значения корректно!",
+  result_volume_label: "Объём", result_liters_label: "литров"
+},
+qq: {
+  notice_bar: "⚠️ Сайт тест режиминде ислеп атыр — нәтийжелер шама есапланған",
+  nav_home: "Бас бет", nav_volume: "Көлем калькуляторы", nav_volume_short: "Көлем", nav_about: "Биз хаққымызда", nav_contact: "Байланыс", nav_login: "Кириў",
+  nav_logout: "Шығыў",
+  footer_desc: "Ариқ суў сарпын онлайн есаплаў ушын бийпул калькулятор һәм гидрометрия бойынша өзбек тилиндеги ресурс.",
+  footer_pages: "Бетлер", footer_docs: "Хүжжетлер", footer_privacy: "Қупыялық сиясаты", footer_terms: "Пайдаланыў шәртлери",
+  footer_copyright_pre: "©", footer_copyright_post: "Барлық хуқықлар қорғалған.",
+  hajm_eyebrow: "Көлем калькуляторы",
+  hajm_h1: "Ҳовуз һәм резервуар көлемин <span>бирнеше секунд</span> ишинде есаплаң",
+  hajm_lead: "Туўры мүйешли яки думалақ (цилиндрсимон) ҳовуз, суў қоймасы, резервуар көлемин литр һәм куб метрде анықлаң.",
+  hajm_tab_rect: "▭ Туўры мүйешли ҳовуз", hajm_tab_cyl: "⬤ Думалақ (цилиндрсимон)",
+  hajm_field_l: "L — Узынлық", hajm_field_b: "B — Кеңлик", hajm_field_h: "H — Суў бийиклиги", hajm_field_d: "D — Диаметр",
+  unit_m: "(метр)", btn_calculate: "Есаплаў", result_placeholder: "Нәтийжелер усы жерде шығады",
+  hajm_note_rect: "1 м³ = 1000 литр. Нәтийже суў толық толтырылған ҳал ушын есапланады.",
+  hajm_note_cyl: "1 м³ = 1000 литр. Формула: V = π × (D/2)² × H",
+  hajm_guide_h1: "Ҳовуз көлеми қалай есапланады?",
+  hajm_guide_p1: "<b>Туўры мүйешли ҳовуз</b> ушын көлем — узынлық, кеңлик һәм бийикликтиң көбеймеси:",
+  hajm_guide_p2: "<b>Думалақ (цилиндрсимон) ҳовуз</b> ушын көлем — тийкар майданы (шеңбер) бийикликке көбейтиледи:",
+  hajm_guide_p3: "Бул калькулятор суў қоймалары, мал ушын суў ҳовызлары, суғарыў резервуарлары һәм басқа суў сыйымлықларын жойбарлаўда пайдалы болады.",
+  err_fill: "Өтиниш, барлық қыйметлерди дурыс киргизиң!",
+  result_volume_label: "Көлем", result_liters_label: "литр"
+},
+en: {
+  notice_bar: "⚠️ Site is running in test mode — results are approximate",
+  nav_home: "Home", nav_volume: "Volume Calculator", nav_volume_short: "Volume", nav_about: "About Us", nav_contact: "Contact", nav_login: "Log in",
+  nav_logout: "Log out",
+  footer_desc: "A free online calculator for irrigation canal water flow, and a hydrometry resource in Uzbek.",
+  footer_pages: "Pages", footer_docs: "Documents", footer_privacy: "Privacy Policy", footer_terms: "Terms of Use",
+  footer_copyright_pre: "©", footer_copyright_post: "All rights reserved.",
+  hajm_eyebrow: "Volume Calculator",
+  hajm_h1: "Calculate pool and reservoir volume <span>in seconds</span>",
+  hajm_lead: "Determine the volume of a rectangular or round (cylindrical) pool, water tank, or reservoir in liters and cubic meters.",
+  hajm_tab_rect: "▭ Rectangular pool", hajm_tab_cyl: "⬤ Round (cylindrical)",
+  hajm_field_l: "L — Length", hajm_field_b: "B — Width", hajm_field_h: "H — Water height", hajm_field_d: "D — Diameter",
+  unit_m: "(meters)", btn_calculate: "Calculate", result_placeholder: "Results will appear here",
+  hajm_note_rect: "1 m³ = 1000 liters. Calculated for a fully filled state.",
+  hajm_note_cyl: "1 m³ = 1000 liters. Formula: V = π × (D/2)² × H",
+  hajm_guide_h1: "How is pool volume calculated?",
+  hajm_guide_p1: "The volume of a <b>rectangular pool</b> is the product of length, width and height:",
+  hajm_guide_p2: "The volume of a <b>round (cylindrical) pool</b> is the base area (circle) multiplied by height:",
+  hajm_guide_p3: "This calculator is useful when designing water reservoirs, livestock watering pools, irrigation reservoirs, and other water containers.",
+  err_fill: "Please enter all values correctly!",
+  result_volume_label: "Volume", result_liters_label: "liters"
+}
+};
+
+function tr(key) {
+  const lang = window.__currentLang || 'uz';
+  return (I18N[lang] && I18N[lang][key]) || I18N.uz[key] || key;
+}
+
+function applyLang(lang) {
+  if (!I18N[lang]) lang = 'uz';
+  window.__currentLang = lang;
+  try { localStorage.setItem('ariq_lang', lang); } catch (e) {}
+
+  document.querySelectorAll('[data-i18n]').forEach(function (el) {
+    el.textContent = tr(el.getAttribute('data-i18n'));
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
+    el.innerHTML = tr(el.getAttribute('data-i18n-html'));
+  });
+
+  document.querySelectorAll('.lang-option').forEach(function (opt) {
+    opt.classList.toggle('active', opt.getAttribute('data-lang') === lang);
+  });
+  const activeOpt = document.querySelector('.lang-option[data-lang="' + lang + '"]');
+  const curFlag = document.getElementById('lang-current-flag');
+  const curCode = document.getElementById('lang-current-code');
+  if (activeOpt && curFlag) curFlag.innerHTML = activeOpt.querySelector('.lang-flag').innerHTML;
+  if (curCode) curCode.textContent = lang.toUpperCase();
+
+  document.documentElement.setAttribute('lang', lang === 'qq' ? 'kaa' : lang);
+}
+
+const langSwitchEl = document.getElementById('lang-switch');
+document.getElementById('lang-current')?.addEventListener('click', function (e) {
+  e.stopPropagation();
+  langSwitchEl.classList.toggle('open');
+});
+document.querySelectorAll('.lang-option').forEach(function (opt) {
+  opt.addEventListener('click', function () {
+    applyLang(opt.getAttribute('data-lang'));
+    langSwitchEl.classList.remove('open');
+  });
+});
+document.addEventListener('click', function () { langSwitchEl?.classList.remove('open'); });
+
+(function initLang() {
+  let saved = 'uz';
+  try { saved = localStorage.getItem('ariq_lang') || 'uz'; } catch (e) {}
+  applyLang(saved);
+})();
+
+function switchTab(name) {
+    document.getElementById('tab-rect').classList.toggle('active', name === 'rect');
+    document.getElementById('tab-cyl').classList.toggle('active', name === 'cyl');
+    document.getElementById('section-rect').classList.toggle('active', name === 'rect');
+    document.getElementById('section-cyl').classList.toggle('active', name === 'cyl');
+}
+
+function hisoblaRect() {
+    const l = parseFloat(document.getElementById('rect-l').value);
+    const b = parseFloat(document.getElementById('rect-b').value);
+    const h = parseFloat(document.getElementById('rect-h').value);
+    const result = document.getElementById('result-rect');
+
+    if ([l, b, h].some(isNaN) || l <= 0 || b <= 0 || h <= 0) {
+        result.innerHTML = "<span class='err'>" + tr('err_fill') + "</span>";
+        return;
+    }
+
+    const V = l * b * h;
+    result.innerHTML =
+        tr('result_volume_label') + ": V = " + l + " × " + b + " × " + h + "<br>" +
+        "<b>V = " + V.toFixed(3) + " м³</b><br>" +
+        "<b>= " + (V * 1000).toFixed(0) + " " + tr('result_liters_label') + "</b>";
+}
+
+function hisoblaCyl() {
+    const d = parseFloat(document.getElementById('cyl-d').value);
+    const h = parseFloat(document.getElementById('cyl-h').value);
+    const result = document.getElementById('result-cyl');
+
+    if ([d, h].some(isNaN) || d <= 0 || h <= 0) {
+        result.innerHTML = "<span class='err'>" + tr('err_fill') + "</span>";
+        return;
+    }
+
+    const r = d / 2;
+    const V = Math.PI * r * r * h;
+    result.innerHTML =
+        tr('result_volume_label') + ": V = π × " + r.toFixed(2) + "² × " + h + "<br>" +
+        "<b>V = " + V.toFixed(3) + " м³</b><br>" +
+        "<b>= " + (V * 1000).toFixed(0) + " " + tr('result_liters_label') + "</b>";
+}
+</script>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-analytics.js";
+  import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDAASP0w2jdXToVVFBfgAsiBOrR3Lz8-z0",
+    authDomain: "ariqsuvsarfiuz.firebaseapp.com",
+    projectId: "ariqsuvsarfiuz",
+    storageBucket: "ariqsuvsarfiuz.firebasestorage.app",
+    messagingSenderId: "491723654197",
+    appId: "1:491723654197:web:e28be59fc949ea1c4cdd7c",
+    measurementId: "G-SRYYKXYKZH"
+  };
+  const app = initializeApp(firebaseConfig);
+  try { getAnalytics(app); } catch (e) {}
+  const auth = getAuth(app);
+  window.__auth = auth;
+  window.__signOut = signOut;
+
+  function updateNavAuthUI(user) {
+    const loginLink = document.getElementById('nav-login-link');
+    const userWrap = document.getElementById('nav-user-wrap');
+    if (!loginLink || !userWrap) return;
+    if (user) {
+      loginLink.style.display = 'none';
+      userWrap.style.display = '';
+      const name = user.displayName || (user.email ? user.email.split('@')[0] : 'Фойдаланувчи');
+      const nameEl = document.getElementById('nav-user-name');
+      const avatarEl = document.getElementById('nav-avatar');
+      const emailEl = document.getElementById('nav-dropdown-email');
+      if (nameEl) nameEl.textContent = name;
+      if (avatarEl) avatarEl.textContent = name.charAt(0).toUpperCase();
+      if (emailEl) emailEl.textContent = user.email || '';
+    } else {
+      loginLink.style.display = '';
+      userWrap.style.display = 'none';
+      document.getElementById('nav-dropdown')?.classList.remove('show');
+    }
+  }
+
+  document.getElementById('nav-user-btn')?.addEventListener('click', function (e) {
+    e.stopPropagation();
+    document.getElementById('nav-dropdown').classList.toggle('show');
+  });
+  document.addEventListener('click', function () {
+    document.getElementById('nav-dropdown')?.classList.remove('show');
+  });
+  document.getElementById('nav-logout-btn')?.addEventListener('click', async function () {
+    try { await signOut(auth); } catch (e) {}
+    window.location.href = 'index.html';
+  });
+
+  onAuthStateChanged(auth, updateNavAuthUI);
+</script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('/sw.js').catch(function (e) {
+      console.log('SW registration failed:', e);
+    });
+  });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Махфийлик сиёсати — ariqsuvsarfi.uz</title>
+  <meta name="description" content="Ariqsuvsarfi.uz сайтининг махфийлик сиёсати." />
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#163258">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Ariqsuvsarfi">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy-50:#eef2f7; --navy-100:#dde6f0; --navy-500:#2c5aa0; --navy-600:#1e4176; --navy-700:#163258; --navy-800:#0f2340;
+      --gray-50:#f8fafc; --gray-100:#f1f5f9; --gray-300:#e2e8f0; --gray-500:#64748b; --gray-700:#475569; --gray-900:#1e293b;
+      --white:#ffffff; --radius:2px; --max:760px; --amber-50:#fffbeb;
+    }
+    body { font-family: Arial, "Helvetica Neue", Helvetica, sans-serif; background:#f4f5f7; color:var(--gray-900); font-size:16px; line-height:1.7; -webkit-font-smoothing:antialiased; min-height:100vh; display:flex; flex-direction:column; }
+    a { color:var(--navy-600); text-decoration:none; } a:hover { text-decoration:underline; }
+    svg{display:block;flex-shrink:0;}
+
+    .notice-bar{background:var(--amber-50);border-bottom:1px solid #fde68a;color:#92400e;text-align:center;font-size:12.5px;font-weight:600;padding:7px 16px;}
+    .site-header{background:var(--navy-700);border-bottom:3px solid var(--navy-800);position:sticky;top:0;z-index:30;}
+    .header-inner{max-width:var(--max);margin:0 auto;padding:0 20px;height:60px;display:flex;align-items:center;justify-content:space-between;gap:12px;}
+    .logo{display:flex;align-items:center;gap:8px;font-weight:700;font-size:16px;color:#fff;white-space:nowrap;}
+    .logo-dot{width:8px;height:8px;border-radius:50%;background:#fff;}
+    .main-nav{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;min-width:44px;flex-shrink:1;}
+.header-actions{display:flex;align-items:center;gap:2px;flex-shrink:0;}
+.lang-switch{position:relative;margin-right:4px;}
+.lang-current{display:flex;align-items:center;gap:6px;background:var(--navy-800);border:1px solid rgba(255,255,255,.25);font-family:inherit;font-size:12px;font-weight:700;color:#fff;padding:7px 10px;border-radius:2px;cursor:pointer;}
+.lang-current:hover{border-color:rgba(255,255,255,.45);}
+.lang-flag{width:18px;height:13px;border-radius:1px;overflow:hidden;flex-shrink:0;box-shadow:0 0 0 1px rgba(0,0,0,.15);}
+.lang-flag svg{width:100%;height:100%;display:block;}
+.lang-chevron{width:11px;height:11px;flex-shrink:0;transition:transform .15s;}
+.lang-switch.open .lang-chevron{transform:rotate(180deg);}
+.lang-menu{position:absolute;top:calc(100% + 4px);right:0;background:#fff;border:1px solid var(--gray-300);border-radius:2px;box-shadow:0 4px 10px rgba(0,0,0,.12);min-width:170px;padding:4px;display:none;z-index:45;}
+.lang-switch.open .lang-menu{display:block;}
+.lang-option{display:flex;align-items:center;gap:9px;width:100%;text-align:left;background:none;border:none;padding:9px 10px;border-radius:2px;font-family:inherit;font-size:13px;font-weight:600;color:var(--gray-700);cursor:pointer;}
+.lang-option:hover{background:var(--gray-50);}
+.lang-option.active{background:var(--navy-50);color:var(--navy-700);}
+.lang-option .lang-flag{width:20px;height:15px;}
+.bottom-nav{display:none;}
+@media(max-width:640px){
+  .main-nav{display:none;}
+  body{padding-bottom:66px;}
+  .bottom-nav{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:50;background:#fff;border-top:1px solid var(--gray-300);padding-bottom:env(safe-area-inset-bottom);}
+  .bn-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:9px 2px 7px;color:var(--gray-500);font-size:10.5px;font-weight:700;text-decoration:none;text-align:center;line-height:1.15;}
+  .bn-item svg{width:21px;height:21px;}
+  .bn-item.active{color:var(--navy-600);}
+}
+    .main-nav::-webkit-scrollbar{display:none;}
+    .nav-link{display:flex;align-items:center;gap:6px;padding:9px 13px;border-radius:2px;font-size:12.5px;font-weight:700;color:#dbe4f0;white-space:nowrap;transition:.15s;text-decoration:none;}
+    .nav-link:hover{background:var(--navy-800);color:#fff;text-decoration:none;}
+    .nav-link.active{background:var(--navy-800);color:#fff;border-bottom:2px solid #fff;}
+    .nav-link svg{width:15px;height:15px;}
+    .nav-link.cta{background:#fff;color:var(--navy-700);margin-left:2px;font-weight:700;}
+    .nav-link.cta:hover{background:var(--navy-50);}
+    @media(max-width:480px){ .header-inner{height:54px;} .nav-link span.txt{display:none;} .nav-link.cta span.txt{display:inline;} }
+
+    .page-hero { padding:32px 20px 26px; }
+    .page-hero .inner { max-width:var(--max); margin:0 auto; }
+    .page-hero .badge { display:inline-flex; align-items:center; gap:6px; font-size:11.5px; color:var(--navy-700); font-weight:700; letter-spacing:.04em; text-transform:uppercase; margin-bottom:10px; background:var(--navy-50); border:1px solid var(--navy-100); padding:5px 12px; border-radius:2px; }
+    .page-hero h1 { font-size:clamp(22px,4.5vw,30px); font-weight:700; color:var(--gray-900); line-height:1.25; }
+    .page-hero .meta { margin-top:8px; font-size:13px; color:var(--gray-500); }
+
+    .toc-wrap { max-width:var(--max); margin:0 auto; padding:0 20px; }
+    .toc { background:#fff; border:1px solid var(--gray-300); border-radius:2px; padding:18px 22px; }
+    .toc-title { font-size:12px; font-weight:700; color:var(--gray-500); text-transform:uppercase; letter-spacing:.06em; margin-bottom:12px; }
+    .toc ol { padding-left:20px; margin:0; font-size:14px; line-height:2.1; }
+
+    main { flex-grow:1; max-width:var(--max); margin:0 auto; padding:28px 20px 60px; width:100%; }
+    .section { padding-top:32px; border-top:1px solid var(--gray-100); margin-top:32px; background:#fff; border:1px solid var(--gray-100); border-radius:2px; }
+    .section:first-child { margin-top:0; border-top:1px solid var(--gray-100); padding-top:0; }
+    .section-inner{padding:0 24px 24px;}
+    .section:first-child .section-inner{padding:24px;}
+    .section:not(:first-child) .section-num{padding-top:24px;margin-left:24px;}
+    .section-num { font-size:11px; font-weight:700; color:var(--navy-600); letter-spacing:.1em; text-transform:uppercase; margin-bottom:6px; }
+    .section h2 { font-size:clamp(16px,3vw,19px); font-weight:700; color:var(--gray-900); margin-bottom:14px; line-height:1.3; }
+    .section p { color:var(--gray-700); margin-bottom:12px; } .section p:last-child { margin-bottom:0; }
+    .section ul { padding-left:22px; color:var(--gray-700); margin-bottom:12px; } .section li { margin-bottom:7px; }
+    .info-box { background:var(--navy-50); border-left:3px solid var(--navy-600); border-radius:0; padding:14px 18px; font-size:15px; color:var(--gray-700); margin-top:12px; }
+    .warn-box { background:#fff5f5; border-left:3px solid #c92a2a; border-radius:0; padding:16px 18px; font-size:14px; color:#5c1a1a; margin-top:14px; line-height:1.75; }
+    .warn-box strong { color:#c92a2a; }
+
+    footer{width:100%;background:var(--navy-800);border-top:none;padding:32px 16px 26px;margin-top:20px;}
+    .footer-inner{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:26px;font-size:14px;}
+    .footer-brand{max-width:300px;}
+    .footer-brand-name{display:flex;align-items:center;gap:8px;color:#fff;font-weight:700;font-size:15px;margin-bottom:8px;}
+    .footer-dot{width:8px;height:8px;border-radius:50%;background:#fff;flex-shrink:0;}
+    .footer-brand p{color:#a9b7cc;font-size:12.5px;line-height:1.7;}
+    .footer-cols{display:grid;grid-template-columns:1fr 1fr;gap:28px;width:100%;}
+    .footer-cols h4{font-weight:700;color:#fff;font-size:13.5px;margin-bottom:9px;}
+    .footer-cols ul{list-style:none;display:flex;flex-direction:column;gap:7px;}
+    .footer-cols li{color:#a9b7cc;font-size:12.5px;}
+    .footer-cols a:hover{color:#fff;}
+    .footer-email{color:#a9b7cc;padding-top:2px;word-break:break-all;}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.15);margin-top:6px;padding-top:16px;text-align:center;font-size:12px;color:#a9b7cc;}
+
+    @media(min-width:768px){ .footer-inner{flex-direction:row;justify-content:space-between;align-items:flex-start;} .footer-cols{width:auto;} }
+    @media(max-width:480px){ .page-hero{padding:22px 16px 18px;} main{padding:20px 16px 50px;} .toc-wrap{padding:0 16px;} .toc{padding:14px 16px;} }
+  .nav-user-wrap{position:relative;}
+.nav-user-btn{display:flex;align-items:center;gap:7px;padding:7px 12px 7px 7px;border-radius:2px;background:#fff;color:var(--navy-700);border:none;font-family:inherit;font-size:12.5px;font-weight:700;cursor:pointer;white-space:nowrap;}
+.nav-user-btn:hover{background:var(--navy-50);}
+.nav-avatar{width:22px;height:22px;border-radius:50%;background:var(--navy-600);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;}
+.nav-dropdown{position:absolute;top:calc(100% + 4px);right:0;background:#fff;border:1px solid var(--gray-300);border-radius:2px;box-shadow:0 4px 10px rgba(0,0,0,.12);min-width:180px;padding:4px;display:none;z-index:40;}
+.nav-dropdown.show{display:block;}
+.nav-dropdown-email{padding:8px 10px;font-size:11.5px;color:var(--gray-500);border-bottom:1px solid var(--gray-100);margin-bottom:4px;word-break:break-all;}
+.nav-dropdown button{width:100%;text-align:left;background:none;border:none;padding:8px 10px;border-radius:2px;font-family:inherit;font-size:13px;font-weight:600;color:#dc2626;cursor:pointer;}
+.nav-dropdown button:hover{background:#fef2f2;}
+@media(max-width:480px){ .nav-user-btn span.txt{max-width:70px;overflow:hidden;text-overflow:ellipsis;} }
+</style>
+</head>
+<body>
+
+<div class="notice-bar" data-i18n="notice_bar">⚠️ Сайт тест режимида ишламоқда — натижалар тахминий ҳисобланади</div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo"><span class="logo-dot"></span>ariqsuvsarfi.uz</a>
+    <nav class="main-nav">
+      <a href="index.html" class="nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+        <span class="txt" data-i18n="nav_home">Бош саҳифа</span>
+      </a>
+      <a href="hajm.html" class="nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><path d="M18 8v10"></path><path d="M13 12v6"></path><path d="M8 15v3"></path></svg>
+        <span class="txt" data-i18n="nav_volume">Ҳажм калькулятори</span>
+      </a>
+      <a href="about.html" class="nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        <span class="txt" data-i18n="nav_about">Биз ҳақимизда</span>
+      </a>
+      <a href="aloqa.html" class="nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        <span class="txt" data-i18n="nav_contact">Алоқа</span>
+      </a>
+    </nav>
+    <div class="header-actions">
+      <div class="lang-switch" id="lang-switch">
+        <button type="button" class="lang-current" id="lang-current">
+          <span class="lang-flag" id="lang-current-flag"></span>
+          <span id="lang-current-code">UZ</span>
+          <svg class="lang-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="lang-menu" id="lang-menu">
+          <button type="button" class="lang-option" data-lang="uz">
+            <span class="lang-flag"><svg viewBox="0 0 30 20"><rect width="30" height="20" fill="#fff"/><rect width="30" height="6" fill="#0099b5"/><rect width="30" height="6" y="14" fill="#1eb53a"/><rect width="30" height="1" y="6" fill="#ce1126"/><rect width="30" height="1" y="13" fill="#ce1126"/><circle cx="5" cy="3" r="2" fill="#fff"/><circle cx="5.8" cy="3" r="1.7" fill="#0099b5"/><circle cx="9" cy="1.6" r="0.45" fill="#fff"/><circle cx="11" cy="1.6" r="0.45" fill="#fff"/><circle cx="9" cy="3" r="0.45" fill="#fff"/><circle cx="11" cy="3" r="0.45" fill="#fff"/><circle cx="9" cy="4.4" r="0.45" fill="#fff"/><circle cx="11" cy="4.4" r="0.45" fill="#fff"/></svg></span>
+            <span>O'zbekcha</span>
+          </button>
+          <button type="button" class="lang-option" data-lang="ru">
+            <span class="lang-flag"><svg viewBox="0 0 30 20"><rect width="30" height="6.67" fill="#fff"/><rect width="30" height="6.67" y="6.67" fill="#0039a6"/><rect width="30" height="6.67" y="13.33" fill="#d52b1e"/></svg></span>
+            <span>Русский</span>
+          </button>
+          <button type="button" class="lang-option" data-lang="qq">
+            <span class="lang-flag"><svg viewBox="0 0 30 20"><rect width="30" height="20" fill="#fff"/><rect width="30" height="8" fill="#00aeef"/><rect width="30" height="8" y="12" fill="#00953b"/><rect width="30" height="1" y="8" fill="#a6192e"/><rect width="30" height="1" y="11" fill="#a6192e"/><circle cx="5" cy="4" r="2" fill="#fff"/><circle cx="5.8" cy="4" r="1.7" fill="#00aeef"/><circle cx="9" cy="2.3" r="0.42" fill="#fff"/><circle cx="9" cy="5.7" r="0.42" fill="#fff"/><circle cx="11" cy="1.2" r="0.42" fill="#fff"/><circle cx="11" cy="6.8" r="0.42" fill="#fff"/><circle cx="12.6" cy="4" r="0.42" fill="#fff"/></svg></span>
+            <span>Qaraqalpaqsha</span>
+          </button>
+          <button type="button" class="lang-option" data-lang="en">
+            <span class="lang-flag"><svg viewBox="0 0 30 20"><rect width="30" height="20" fill="#00247d"/><path d="M0,0 L30,20 M30,0 L0,20" stroke="#fff" stroke-width="4"/><path d="M0,0 L30,20 M30,0 L0,20" stroke="#cf142b" stroke-width="1.5"/><path d="M15,0 V20 M0,10 H30" stroke="#fff" stroke-width="6.5"/><path d="M15,0 V20 M0,10 H30" stroke="#cf142b" stroke-width="3"/></svg></span>
+            <span>English</span>
+          </button>
+        </div>
+      </div>
+      <a href="login.html" id="nav-login-link" class="nav-link cta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></svg>
+        <span class="txt" data-i18n="nav_login">Кириш</span>
+      </a>
+      <div class="nav-user-wrap" id="nav-user-wrap" style="display:none;">
+        <button type="button" class="nav-user-btn" id="nav-user-btn">
+          <span class="nav-avatar" id="nav-avatar">?</span>
+          <span class="txt" id="nav-user-name">...</span>
+        </button>
+        <div class="nav-dropdown" id="nav-dropdown">
+          <div class="nav-dropdown-email" id="nav-dropdown-email"></div>
+          <button type="button" id="nav-logout-btn" data-i18n="nav_logout">Чиқиш</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="bottom-nav" id="bottom-nav">
+  <a href="index.html" class="bn-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+    <span data-i18n="nav_home">Бош саҳифа</span>
+  </a>
+  <a href="hajm.html" class="bn-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><path d="M18 8v10"></path><path d="M13 12v6"></path><path d="M8 15v3"></path></svg>
+    <span data-i18n="nav_volume_short">Ҳажм</span>
+  </a>
+  <a href="about.html" class="bn-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+    <span data-i18n="nav_about">Биз ҳақимизда</span>
+  </a>
+  <a href="aloqa.html" class="bn-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+    <span data-i18n="nav_contact">Алоқа</span>
+  </a>
+</nav>
+
+<div class="page-hero">
+  <div class="inner">
+    <div class="badge" data-i18n="badge_legal2">Ҳуқуқий ҳужжат</div>
+    <h1 data-i18n="privacy_h1">Махфийлик сиёсати</h1>
+    <p class="meta" data-i18n="privacy_updated">Охирги янгиланиш: 25-июн, 2026-йил</p>
+  </div>
+</div>
+
+<div class="toc-wrap">
+  <div class="toc">
+    <div class="toc-title" data-i18n="toc_title">Мундарижа</div>
+    <ol>
+      <li><a href="#s1" data-i18n="p_s1_title">Умумий қоидалар</a></li>
+      <li><a href="#s2" data-i18n="p_s2_title">Йиғиладиган маълумотлар</a></li>
+      <li><a href="#s3" data-i18n="p_s3_title">Маълумотлардан фойдаланиш мақсади</a></li>
+      <li><a href="#s4" data-i18n="p_s4_title">Cookies (куки) файллари</a></li>
+      <li><a href="#s5" data-i18n="p_s5_title">Учинчи томонлар</a></li>
+      <li><a href="#s6" data-i18n="p_s6_title">Маълумотлар хавфсизлиги</a></li>
+      <li><a href="#s7" data-i18n="p_s7_title">Болалар махфийлиги</a></li>
+      <li><a href="#s8" data-i18n="p_s8_title">Фойдаланувчи ҳуқуқлари</a></li>
+      <li><a href="#s9" data-i18n="p_s9_title">Жавобгарликдан озод қилиш</a></li>
+      <li><a href="#s10" data-i18n="p_s10_title">Сиёсатга ўзгартиришлар</a></li>
+      <li><a href="#s11" data-i18n="p_s11_title">Алоқа</a></li>
+    </ol>
+  </div>
+</div>
+
+<main>
+
+  <div class="section" id="s1"><div class="section-inner">
+    <div class="section-num">01</div>
+    <h2 data-i18n="p_s1_title">Умумий қоидалар</h2>
+    <div data-i18n-html="p_s1_content"><p>
+      Ушбу Махфийлик сиёсати <strong>ariqsuvsarfi.uz</strong> вебсайтидан
+      фойдаланувчиларнинг маълумотларини йиғиш, қайта ишлаш, сақлаш ва ҳимоя
+      қилиш тартибини белгилайди.
+    </p>
+    <div class="info-box">
+      Сайтдан фойдаланиш орқали сиз ушбу сиёсат шартларига розилик билдирасиз.
+    </div></div>
+  </div></div>
+
+  <div class="section" id="s2"><div class="section-inner">
+    <div class="section-num">02</div>
+    <h2 data-i18n="p_s2_title">Йиғиладиган маълумотлар</h2>
+    <div data-i18n-html="p_s2_content"><p>Сайт қуйидаги маълумотларни йиғиши мумкин:</p>
+    <ul>
+      <li>Техник маълумотлар: IP-манзил, браузер тури, қурилма тури, операцион тизим, кириш вақти.</li>
+      <li>Фойдаланувчи томонидан киритилган ҳисоб-китоб маълумотлари (сув сарфи кўрсаткичлари).</li>
+      <li>Cookies файллари орқали олинадиган фойдаланиш статистикаси.</li>
+    </ul>
+    <p>
+      Сайт исм, телефон рақами, паспорт маълумотлари ёки тўлов маълумотлари каби
+      <strong>шахсий идентификация маълумотларини йиғмайди</strong>.
+    </p></div>
+  </div></div>
+
+  <div class="section" id="s3"><div class="section-inner">
+    <div class="section-num">03</div>
+    <h2 data-i18n="p_s3_title">Маълумотлардан фойдаланиш мақсади</h2>
+    <div data-i18n-html="p_s3_content"><ul>
+      <li>Сайтнинг тўғри ишлашини таъминлаш.</li>
+      <li>Хизмат сифатини яхшилаш ва таҳлил қилиш.</li>
+      <li>Фойдаланувчи тажрибасини яхшилаш.</li>
+      <li>Статистик таҳлил ва аноним ҳисоботлар тайёрлаш.</li>
+      <li>Қонун талабларига мувофиқ жавоб бериш.</li>
+    </ul></div>
+  </div></div>
+
+  <div class="section" id="s4"><div class="section-inner">
+    <div class="section-num">04</div>
+    <h2 data-i18n="p_s4_title">Cookies (куки) файллари</h2>
+    <div data-i18n-html="p_s4_content"><p>
+      Сайт фойдаланувчи тажрибасини яхшилаш учун куки файлларидан фойдаланади.
+      Браузер созламалари орқали куки файлларини ўчириб қўйишингиз мумкин.
+    </p>
+    <p>
+      Сайт <strong>Google Analytics</strong> ва <strong>Google Ads</strong> каби
+      учинчи томон хизматларидан фойдаланиши мумкин. Бу хизматлар ўз куки
+      файлларини ўрнатади ва ўз махфийлик сиёсатига эга — сайт маъмурияти
+      уларнинг сиёсати учун жавобгар эмас.
+    </p></div>
+  </div></div>
+
+  <div class="section" id="s5"><div class="section-inner">
+    <div class="section-num">05</div>
+    <h2 data-i18n="p_s5_title">Учинчи томонлар</h2>
+    <div data-i18n-html="p_s5_content"><p>
+      Фойдаланувчи маълумотлари учинчи шахсларга сотилмайди, ижарага берилмайди
+      ва ошкор қилинмайди — қуйидаги ҳоллар бундан мустасно:
+    </p>
+    <ul>
+      <li>Фойдаланувчининг аниқ розилиги мавжуд бўлганда.</li>
+      <li>Ўзбекистон Республикаси қонунлари талаб қилганда.</li>
+      <li>Сайт хавфсизлигини таъминлаш ёки ҳуқуқбузарликларнинг олдини олиш мақсадида.</li>
+    </ul></div>
+  </div></div>
+
+  <div class="section" id="s6"><div class="section-inner">
+    <div class="section-num">06</div>
+    <h2 data-i18n="p_s6_title">Маълумотлар хавфсизлиги</h2>
+    <div data-i18n-html="p_s6_content"><p>
+      Сайт маълумотларни ҳимоя қилиш учун зарур техник чораларни кўради.
+    </p>
+    <div class="info-box">
+      Барча маълумотлар <strong>HTTPS (SSL)</strong> протоколи орқали шифрланган ҳолда узатилади.
+    </div></div>
+  </div></div>
+
+  <div class="section" id="s7"><div class="section-inner">
+    <div class="section-num">07</div>
+    <h2 data-i18n="p_s7_title">Болалар махфийлиги</h2>
+    <div data-i18n-html="p_s7_content"><p>
+      Сайт 13 ёшгача бўлган болалардан атайлаб маълумот йиғмайди. Агар бундай
+      маълумотлар йиғилгани аниқланса, улар дарҳол ўчириб ташланади.
+    </p></div>
+  </div></div>
+
+  <div class="section" id="s8"><div class="section-inner">
+    <div class="section-num">08</div>
+    <h2 data-i18n="p_s8_title">Фойдаланувчи ҳуқуқлари</h2>
+    <div data-i18n-html="p_s8_content"><ul>
+      <li>Ўзи ҳақидаги маълумотларга кириш ҳуқуқи.</li>
+      <li>Нотўғри маълумотларни тўғрилашни талаб қилиш ҳуқуқи.</li>
+      <li>Маълумотларини ўчиришни талаб қилиш ҳуқуқи.</li>
+      <li>Маълумотларини қайта ишлашга розилигини бекор қилиш ҳуқуқи.</li>
+    </ul></div>
+  </div></div>
+
+  <div class="section" id="s9"><div class="section-inner">
+    <div class="section-num">09</div>
+    <h2 data-i18n="p_s9_title">Жавобгарликдан озод қилиш</h2>
+    <div data-i18n-html="p_s9_content"><p>
+      Сайт ва унинг маъмурияти қуйидагилар учун <strong>ҳеч қандай жавобгарлик
+      тутмайди</strong>:
+    </p>
+
+    <div class="warn-box">
+      <strong>⚠️ Муҳим:</strong><br><br>
+      Сайтдаги ҳисоб-китоб натижалари <strong>фақат тахминий маълумот</strong>
+      сифатида қаралади. Улар расмий норматив ҳужжатлар ёки мутахассис
+      хулосасини алмаштира олмайди. Фойдаланувчи сайтдан <strong>ўз хавф-хатари
+      остида</strong> фойдаланади.
+    </div>
+
+    <ul style="margin-top:16px;">
+      <li>Ҳисоб-китоб натижалари асосида қабул қилинган ҳар қандай қарорлар ва уларнинг оқибатлари.</li>
+      <li>Фойдаланувчи нотўғри киритган маълумотлар сабабли олинган натижалар.</li>
+      <li>Сайт хизматининг вақтинча тўхташи ёки техник носозликлар.</li>
+      <li>Учинчи томон хизматлари (Google, реклама тармоқлари) орқали юзага келган муаммолар.</li>
+      <li>Ташқи омиллар (вирус, хакер ҳужуми) туфайли маълумот йўқотиш.</li>
+      <li>Сайтдаги ахборот асосида кўрилган ҳар қандай моддий ёки бошқа зарарлар.</li>
+    </ul>
+
+    <div class="warn-box" style="margin-top:16px;">
+      Сайтдан фойдаланиш орқали фойдаланувчи юқоридаги барча шартларни
+      <strong>тўлиқ қабул қилган</strong> деб ҳисобланади. Барча низолар
+      фақат <strong>музокара ва ўзаро келишув</strong> йўли билан ҳал қилинади.
+    </div></div>
+  </div></div>
+
+  <div class="section" id="s10"><div class="section-inner">
+    <div class="section-num">10</div>
+    <h2 data-i18n="p_s10_title">Сиёсатга ўзгартиришлар</h2>
+    <div data-i18n-html="p_s10_content"><p>
+      Сайт маъмурияти ушбу сиёсатга исталган вақтда ўзгартириш киритиш
+      ҳуқуқини ўзида сақлаб қолади. Барча ўзгартиришлар эълон қилинган
+      пайтдан бошлаб кучга киради.
+    </p></div>
+  </div></div>
+
+  <div class="section" id="s11"><div class="section-inner">
+    <div class="section-num">11</div>
+    <h2 data-i18n="p_s11_title">Алоқа</h2>
+    <div data-i18n-html="p_s11_content"><ul>
+      <li>Веб-сайт: <a href="https://ariqsuvsarfi.uz">ariqsuvsarfi.uz</a></li>
+      <li>Email: <a href="mailto:info@ariqsuvsarfi.uz">info@ariqsuvsarfi.uz</a></li>
+    </ul></div>
+  </div></div>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-brand-name"><span class="footer-dot"></span>ariqsuvsarfi.uz</div>
+      <p data-i18n="footer_desc">Ариқ сув сарфини онлайн ҳисоблаш учун бепул калькулятор ва гидрометрия бўйича ўзбек тилидаги ресурс.</p>
+    </div>
+    <div class="footer-cols">
+      <div>
+        <h4 data-i18n="footer_pages">Саҳифалар</h4>
+        <ul>
+          <li><a href="index.html" data-i18n="nav_home">Бош саҳифа</a></li>
+          <li><a href="index.html#qollanma" data-i18n="nav_guide">Йўриқнома</a></li>
+          <li><a href="hajm.html" data-i18n="nav_volume">Ҳажм калькулятори</a></li>
+          <li><a href="about.html" data-i18n="nav_about">Биз ҳақимизда</a></li>
+          <li><a href="aloqa.html" data-i18n="nav_contact">Алоқа</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer_docs">Ҳужжатлар</h4>
+        <ul>
+          <li><a href="privacy.html" data-i18n="footer_privacy">Махфийлик сиёсати</a></li>
+          <li><a href="terms.html" data-i18n="footer_terms">Фойдаланиш шартлари</a></li>
+          <li class="footer-email">info@ariqsuvsarfi.uz</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom"><span data-i18n="footer_copyright_pre">©</span> <span id="year"></span> ariqsuvsarfi.uz — <span data-i18n="footer_copyright_post">Барча ҳуқуқлар ҳимояланган.</span></div>
+</footer>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+const I18N = {
+uz: {
+  notice_bar: "⚠️ Сайт тест режимида ишламоқда — натижалар тахминий ҳисобланади",
+  nav_home: "Бош саҳифа", nav_volume: "Ҳажм калькулятори", nav_volume_short: "Ҳажм", nav_guide: "Йўриқнома", nav_about: "Биз ҳақимизда", nav_contact: "Алоқа", nav_login: "Кириш",
+  nav_logout: "Чиқиш",
+  footer_desc: "Ариқ сув сарфини онлайн ҳисоблаш учун бепул калькулятор ва гидрометрия бўйича ўзбек тилидаги ресурс.",
+  footer_pages: "Саҳифалар", footer_docs: "Ҳужжатлар", footer_privacy: "Махфийлик сиёсати", footer_terms: "Фойдаланиш шартлари",
+  footer_copyright_pre: "©", footer_copyright_post: "Барча ҳуқуқлар ҳимояланган.",
+  badge_legal2: "Ҳуқуқий ҳужжат", privacy_h1: "Махфийлик сиёсати", privacy_updated: "Охирги янгиланиш: 25-июн, 2026-йил",
+  toc_title: "Мундарижа",
+  p_s1_title: "Умумий қоидалар",
+  p_s1_content: '<p>Ушбу Махфийлик сиёсати <strong>ariqsuvsarfi.uz</strong> вебсайтидан фойдаланувчиларнинг маълумотларини йиғиш, қайта ишлаш, сақлаш ва ҳимоя қилиш тартибини белгилайди.</p><div class="info-box">Сайтдан фойдаланиш орқали сиз ушбу сиёсат шартларига розилик билдирасиз.</div>',
+  p_s2_title: "Йиғиладиган маълумотлар",
+  p_s2_content: '<p>Сайт қуйидаги маълумотларни йиғиши мумкин:</p><ul><li>Техник маълумотлар: IP-манзил, браузер тури, қурилма тури, операцион тизим, кириш вақти.</li><li>Фойдаланувчи томонидан киритилган ҳисоб-китоб маълумотлари (сув сарфи кўрсаткичлари).</li><li>Cookies файллари орқали олинадиган фойдаланиш статистикаси.</li></ul><p>Сайт исм, телефон рақами, паспорт маълумотлари ёки тўлов маълумотлари каби <strong>шахсий идентификация маълумотларини йиғмайди</strong>.</p>',
+  p_s3_title: "Маълумотлардан фойдаланиш мақсади",
+  p_s3_content: '<ul><li>Сайтнинг тўғри ишлашини таъминлаш.</li><li>Хизмат сифатини яхшилаш ва таҳлил қилиш.</li><li>Фойдаланувчи тажрибасини яхшилаш.</li><li>Статистик таҳлил ва аноним ҳисоботлар тайёрлаш.</li><li>Қонун талабларига мувофиқ жавоб бериш.</li></ul>',
+  p_s4_title: "Cookies (куки) файллари",
+  p_s4_content: '<p>Сайт фойдаланувчи тажрибасини яхшилаш учун куки файлларидан фойдаланади. Браузер созламалари орқали куки файлларини ўчириб қўйишингиз мумкин.</p><p>Сайт <strong>Google Analytics</strong> ва <strong>Google Ads</strong> каби учинчи томон хизматларидан фойдаланиши мумкин. Бу хизматлар ўз куки файлларини ўрнатади ва ўз махфийлик сиёсатига эга — сайт маъмурияти уларнинг сиёсати учун жавобгар эмас.</p>',
+  p_s5_title: "Учинчи томонлар",
+  p_s5_content: '<p>Фойдаланувчи маълумотлари учинчи шахсларга сотилмайди, ижарага берилмайди ва ошкор қилинмайди — қуйидаги ҳоллар бундан мустасно:</p><ul><li>Фойдаланувчининг аниқ розилиги мавжуд бўлганда.</li><li>Ўзбекистон Республикаси қонунлари талаб қилганда.</li><li>Сайт хавфсизлигини таъминлаш ёки ҳуқуқбузарликларнинг олдини олиш мақсадида.</li></ul>',
+  p_s6_title: "Маълумотлар хавфсизлиги",
+  p_s6_content: '<p>Сайт маълумотларни ҳимоя қилиш учун зарур техник чораларни кўради.</p><div class="info-box">Барча маълумотлар <strong>HTTPS (SSL)</strong> протоколи орқали шифрланган ҳолда узатилади.</div>',
+  p_s7_title: "Болалар махфийлиги",
+  p_s7_content: '<p>Сайт 13 ёшгача бўлган болалардан атайлаб маълумот йиғмайди. Агар бундай маълумотлар йиғилгани аниқланса, улар дарҳол ўчириб ташланади.</p>',
+  p_s8_title: "Фойдаланувчи ҳуқуқлари",
+  p_s8_content: '<ul><li>Ўзи ҳақидаги маълумотларга кириш ҳуқуқи.</li><li>Нотўғри маълумотларни тўғрилашни талаб қилиш ҳуқуқи.</li><li>Маълумотларини ўчиришни талаб қилиш ҳуқуқи.</li><li>Маълумотларини қайта ишлашга розилигини бекор қилиш ҳуқуқи.</li></ul>',
+  p_s9_title: "Жавобгарликдан озод қилиш",
+  p_s9_content: '<p>Сайт ва унинг маъмурияти қуйидагилар учун <strong>ҳеч қандай жавобгарлик тутмайди</strong>:</p><div class="warn-box"><strong>⚠️ Муҳим:</strong><br><br>Сайтдаги ҳисоб-китоб натижалари <strong>фақат тахминий маълумот</strong> сифатида қаралади. Улар расмий норматив ҳужжатлар ёки мутахассис хулосасини алмаштира олмайди. Фойдаланувчи сайтдан <strong>ўз хавф-хатари остида</strong> фойдаланади.</div><ul style="margin-top:16px;"><li>Ҳисоб-китоб натижалари асосида қабул қилинган ҳар қандай қарорлар ва уларнинг оқибатлари.</li><li>Фойдаланувчи нотўғри киритган маълумотлар сабабли олинган натижалар.</li><li>Сайт хизматининг вақтинча тўхташи ёки техник носозликлар.</li><li>Учинчи томон хизматлари (Google, реклама тармоқлари) орқали юзага келган муаммолар.</li><li>Ташқи омиллар (вирус, хакер ҳужуми) туфайли маълумот йўқотиш.</li><li>Сайтдаги ахборот асосида кўрилган ҳар қандай моддий ёки бошқа зарарлар.</li></ul><div class="warn-box" style="margin-top:16px;">Сайтдан фойдаланиш орқали фойдаланувчи юқоридаги барча шартларни <strong>тўлиқ қабул қилган</strong> деб ҳисобланади. Барча низолар фақат <strong>музокара ва ўзаро келишув</strong> йўли билан ҳал қилинади.</div>',
+  p_s10_title: "Сиёсатга ўзгартиришлар",
+  p_s10_content: '<p>Сайт маъмурияти ушбу сиёсатга исталган вақтда ўзгартириш киритиш ҳуқуқини ўзида сақлаб қолади. Барча ўзгартиришлар эълон қилинган пайтдан бошлаб кучга киради.</p>',
+  p_s11_title: "Алоқа",
+  p_s11_content: '<ul><li>Веб-сайт: <a href="https://ariqsuvsarfi.uz">ariqsuvsarfi.uz</a></li><li>Email: <a href="mailto:info@ariqsuvsarfi.uz">info@ariqsuvsarfi.uz</a></li></ul>'
+},
+ru: {
+  notice_bar: "⚠️ Сайт работает в тестовом режиме — результаты являются приблизительными",
+  nav_home: "Главная", nav_volume: "Калькулятор объёма", nav_volume_short: "Объём", nav_guide: "Инструкция", nav_about: "О нас", nav_contact: "Контакты", nav_login: "Войти",
+  nav_logout: "Выйти",
+  footer_desc: "Бесплатный онлайн-калькулятор расхода воды в арыках и ресурс по гидрометрии на узбекском языке.",
+  footer_pages: "Страницы", footer_docs: "Документы", footer_privacy: "Политика конфиденциальности", footer_terms: "Условия использования",
+  footer_copyright_pre: "©", footer_copyright_post: "Все права защищены.",
+  badge_legal2: "Юридический документ", privacy_h1: "Политика конфиденциальности", privacy_updated: "Последнее обновление: 25 июня 2026 г.",
+  toc_title: "Содержание",
+  p_s1_title: "Общие положения",
+  p_s1_content: '<p>Настоящая Политика конфиденциальности определяет порядок сбора, обработки, хранения и защиты данных пользователей веб-сайта <strong>ariqsuvsarfi.uz</strong>.</p><div class="info-box">Используя сайт, вы соглашаетесь с условиями данной политики.</div>',
+  p_s2_title: "Собираемые данные",
+  p_s2_content: '<p>Сайт может собирать следующие данные:</p><ul><li>Технические данные: IP-адрес, тип браузера, тип устройства, операционная система, время входа.</li><li>Расчётные данные, введённые пользователем (показатели расхода воды).</li><li>Статистика использования, получаемая через файлы cookies.</li></ul><p>Сайт <strong>не собирает</strong> персональные идентификационные данные, такие как имя, номер телефона, паспортные данные или платёжные данные.</p>',
+  p_s3_title: "Цель использования данных",
+  p_s3_content: '<ul><li>Обеспечение корректной работы сайта.</li><li>Улучшение и анализ качества услуг.</li><li>Улучшение пользовательского опыта.</li><li>Подготовка статистического анализа и анонимных отчётов.</li><li>Реагирование в соответствии с требованиями закона.</li></ul>',
+  p_s4_title: "Файлы cookies",
+  p_s4_content: '<p>Сайт использует файлы cookies для улучшения пользовательского опыта. Вы можете отключить файлы cookies через настройки браузера.</p><p>Сайт может использовать сторонние сервисы, такие как <strong>Google Analytics</strong> и <strong>Google Ads</strong>. Эти сервисы устанавливают собственные файлы cookies и имеют собственную политику конфиденциальности — администрация сайта не несёт ответственности за их политику.</p>',
+  p_s5_title: "Третьи стороны",
+  p_s5_content: '<p>Данные пользователей не продаются, не сдаются в аренду и не раскрываются третьим лицам — за исключением следующих случаев:</p><ul><li>При наличии явного согласия пользователя.</li><li>Когда этого требует законодательство Республики Узбекистан.</li><li>В целях обеспечения безопасности сайта или предотвращения правонарушений.</li></ul>',
+  p_s6_title: "Безопасность данных",
+  p_s6_content: '<p>Сайт принимает необходимые технические меры для защиты данных.</p><div class="info-box">Все данные передаются в зашифрованном виде по протоколу <strong>HTTPS (SSL)</strong>.</div>',
+  p_s7_title: "Конфиденциальность детей",
+  p_s7_content: '<p>Сайт намеренно не собирает данные детей младше 13 лет. Если будет обнаружено, что такие данные были собраны, они будут немедленно удалены.</p>',
+  p_s8_title: "Права пользователя",
+  p_s8_content: '<ul><li>Право на доступ к данным о себе.</li><li>Право требовать исправления неверных данных.</li><li>Право требовать удаления своих данных.</li><li>Право отозвать согласие на обработку своих данных.</li></ul>',
+  p_s9_title: "Освобождение от ответственности",
+  p_s9_content: '<p>Сайт и его администрация <strong>не несут какой-либо ответственности</strong> за следующее:</p><div class="warn-box"><strong>⚠️ Важно:</strong><br><br>Результаты расчётов на сайте рассматриваются <strong>только как приблизительная информация</strong>. Они не могут заменить официальные нормативные документы или заключение специалиста. Пользователь использует сайт <strong>на свой риск</strong>.</div><ul style="margin-top:16px;"><li>Любые решения, принятые на основе результатов расчётов, и их последствия.</li><li>Результаты, полученные из-за неверно введённых пользователем данных.</li><li>Временную приостановку работы сайта или технические сбои.</li><li>Проблемы, возникшие через сторонние сервисы (Google, рекламные сети).</li><li>Потерю данных из-за внешних факторов (вирусы, хакерские атаки).</li><li>Любые материальные или иные убытки, понесённые на основе информации сайта.</li></ul><div class="warn-box" style="margin-top:16px;">Используя сайт, пользователь считается <strong>полностью принявшим</strong> все вышеуказанные условия. Все споры разрешаются только путём <strong>переговоров и взаимного соглашения</strong>.</div>',
+  p_s10_title: "Изменения политики",
+  p_s10_content: '<p>Администрация сайта оставляет за собой право в любое время вносить изменения в данную политику. Все изменения вступают в силу с момента публикации.</p>',
+  p_s11_title: "Контакты",
+  p_s11_content: '<ul><li>Веб-сайт: <a href="https://ariqsuvsarfi.uz">ariqsuvsarfi.uz</a></li><li>Email: <a href="mailto:info@ariqsuvsarfi.uz">info@ariqsuvsarfi.uz</a></li></ul>'
+},
+qq: {
+  notice_bar: "⚠️ Сайт тест режиминде ислеп атыр — нәтийжелер шама есапланған",
+  nav_home: "Бас бет", nav_volume: "Көлем калькуляторы", nav_volume_short: "Көлем", nav_guide: "Нусқаўлық", nav_about: "Биз хаққымызда", nav_contact: "Байланыс", nav_login: "Кириў",
+  nav_logout: "Шығыў",
+  footer_desc: "Ариқ суў сарпын онлайн есаплаў ушын бийпул калькулятор һәм гидрометрия бойынша өзбек тилиндеги ресурс.",
+  footer_pages: "Бетлер", footer_docs: "Хүжжетлер", footer_privacy: "Қупыялық сиясаты", footer_terms: "Пайдаланыў шәртлери",
+  footer_copyright_pre: "©", footer_copyright_post: "Барлық хуқықлар қорғалған.",
+  badge_legal2: "Хуқықый хүжжет", privacy_h1: "Қупыялық сиясаты", privacy_updated: "Соңғы жаңыланыў: 25-июнь, 2026-жыл",
+  toc_title: "Мазмуны",
+  p_s1_title: "Улыўма қағыйдалар",
+  p_s1_content: '<p>Усы Қупыялық сиясаты <strong>ariqsuvsarfi.uz</strong> веб-сайтынан пайдаланыўшылардың мағлыўматларын жыйнаў, қайта ислеў, сақлаў һәм қорғаў тәртибин белгилейди.</p><div class="info-box">Сайттан пайдаланыў арқалы сиз усы сиясат шәртлерине разылық билдиресиз.</div>',
+  p_s2_title: "Жыйналатуғын мағлыўматлар",
+  p_s2_content: '<p>Сайт төмендеги мағлыўматларды жыйнаўы мүмкин:</p><ul><li>Техникалық мағлыўматлар: IP-мәнзил, браузер түри, қурылма түри, операциялық система, кириў ўақты.</li><li>Пайдаланыўшы тәрепинен киргизилген есап-китап мағлыўматлары (суў сарпы көрсеткишлери).</li><li>Cookies файллары арқалы алынатуғын пайдаланыў статистикасы.</li></ul><p>Сайт ат, телефон нөмири, паспорт мағлыўматлары яки төлем мағлыўматлары сыяқлы <strong>шахсий идентификация мағлыўматларын жыйнамайды</strong>.</p>',
+  p_s3_title: "Мағлыўматлардан пайдаланыў мақсети",
+  p_s3_content: '<ul><li>Сайттың дурыс ислеўин тәмийинлеў.</li><li>Хызмет сапасын жақсылаў һәм талқылаў.</li><li>Пайдаланыўшы тәжирийбесин жақсылаў.</li><li>Статистикалық талқылаў һәм аноним есабатлар таярлаў.</li><li>Нызам талапларына муўапық жуўап бериў.</li></ul>',
+  p_s4_title: "Cookies (куки) файллары",
+  p_s4_content: '<p>Сайт пайдаланыўшы тәжирийбесин жақсылаў ушын куки файлларынан пайдаланады. Браузер сазламалары арқалы куки файлларын өширип қойыўыңыз мүмкин.</p><p>Сайт <strong>Google Analytics</strong> һәм <strong>Google Ads</strong> сыяқлы үшинши тәреп хызметлеринен пайдаланыўы мүмкин. Бул хызметлер өз куки файлларын орнатады һәм өз қупыялық сиясатына ийе — сайт әкимшилиги олардың сиясаты ушын жуўапкер емес.</p>',
+  p_s5_title: "Үшинши тәреплер",
+  p_s5_content: '<p>Пайдаланыўшы мағлыўматлары үшинши шахсларға сатылмайды, ижараға берилмейди һәм ашық етилмейди — төмендеги ҳаллар бунан мустасна:</p><ul><li>Пайдаланыўшының анық разылығы бар болғанда.</li><li>Өзбекстан Республикасы нызамлары талап еткенде.</li><li>Сайт қәўипсизлигин тәмийинлеў яки хуқықбузарлықлардың алдын алыў мақсетинде.</li></ul>',
+  p_s6_title: "Мағлыўматлар қәўипсизлиги",
+  p_s6_content: '<p>Сайт мағлыўматларды қорғаў ушын зәрүр техникалық илажларды көреди.</p><div class="info-box">Барлық мағлыўматлар <strong>HTTPS (SSL)</strong> протоколы арқалы шифрланған ҳалда узатылады.</div>',
+  p_s7_title: "Балалар қупыялығы",
+  p_s7_content: '<p>Сайт 13 жасқа шекем болған балалардан әдейи мағлыўмат жыйнамайды. Егер усындай мағлыўматлар жыйналғаны анықланса, олар дәрҳал өширип таслланады.</p>',
+  p_s8_title: "Пайдаланыўшы хуқықлары",
+  p_s8_content: '<ul><li>Өзи ҳаққындағы мағлыўматларға кириў хуқығы.</li><li>Нәдурыс мағлыўматларды түзетиўди талап етиў хуқығы.</li><li>Мағлыўматларын өшириўди талап етиў хуқығы.</li><li>Мағлыўматларын қайта ислеўге разылығын бийкар етиў хуқығы.</li></ul>',
+  p_s9_title: "Жуўапкершиликтен азат етиў",
+  p_s9_content: '<p>Сайт һәм оның әкимшилиги төмендегилер ушын <strong>еш қандай жуўапкершилик тутпайды</strong>:</p><div class="warn-box"><strong>⚠️ Мүхим:</strong><br><br>Сайттағы есап-китап нәтийжелери <strong>тек шама мағлыўмат</strong> сыпатында қаралады. Олар расмий норматив хүжжетлерди яки мутахассис жуўмағын алмастыра алмайды. Пайдаланыўшы сайттан <strong>өз қәўип-қатерине</strong> пайдаланады.</div><ul style="margin-top:16px;"><li>Есап-китап нәтийжелери тийкарында қабыл етилген ҳәр қандай қарарлар һәм олардың ақыбетлери.</li><li>Пайдаланыўшы нәдурыс киргизген мағлыўматлар себепли алынған нәтийжелер.</li><li>Сайт хызметиниң ўақтынша тоқтаўы яки техникалық носазлықлар.</li><li>Үшинши тәреп хызметлери (Google, реклама тармақлары) арқалы júzege kelgen мәселелер.</li><li>Сыртқы факторлар (вирус, хакер ҳүжими) себепли мағлыўмат жоғалтыў.</li><li>Сайттағы ахборот тийкарында көрилген ҳәр қандай мүлкий яки басқа зыянлар.</li></ul><div class="warn-box" style="margin-top:16px;">Сайттан пайдаланыў арқалы пайдаланыўшы жоқарыдағы барлық шәртлерди <strong>толық қабыл еткен</strong> деп есапланады. Барлық талас-тартыслар тек <strong>музакара һәм өз-ара келисим</strong> жолы менен шешиледи.</div>',
+  p_s10_title: "Сиясатқа өзгерислер",
+  p_s10_content: '<p>Сайт әкимшилиги усы сиясатқа қәлеген ўақытта өзгерис киргизиў хуқығын өзинде сақлап қалады. Барлық өзгерислер эълан етилген ўақыттан баслап күшке кириди.</p>',
+  p_s11_title: "Байланыс",
+  p_s11_content: '<ul><li>Веб-сайт: <a href="https://ariqsuvsarfi.uz">ariqsuvsarfi.uz</a></li><li>Email: <a href="mailto:info@ariqsuvsarfi.uz">info@ariqsuvsarfi.uz</a></li></ul>'
+},
+en: {
+  notice_bar: "⚠️ Site is running in test mode — results are approximate",
+  nav_home: "Home", nav_volume: "Volume Calculator", nav_volume_short: "Volume", nav_guide: "Guide", nav_about: "About Us", nav_contact: "Contact", nav_login: "Log in",
+  nav_logout: "Log out",
+  footer_desc: "A free online calculator for irrigation canal water flow, and a hydrometry resource in Uzbek.",
+  footer_pages: "Pages", footer_docs: "Documents", footer_privacy: "Privacy Policy", footer_terms: "Terms of Use",
+  footer_copyright_pre: "©", footer_copyright_post: "All rights reserved.",
+  badge_legal2: "Legal document", privacy_h1: "Privacy Policy", privacy_updated: "Last updated: June 25, 2026",
+  toc_title: "Table of Contents",
+  p_s1_title: "General provisions",
+  p_s1_content: '<p>This Privacy Policy defines the procedure for collecting, processing, storing and protecting the data of users of the <strong>ariqsuvsarfi.uz</strong> website.</p><div class="info-box">By using the Site, you agree to the terms of this policy.</div>',
+  p_s2_title: "Data collected",
+  p_s2_content: '<p>The Site may collect the following data:</p><ul><li>Technical data: IP address, browser type, device type, operating system, access time.</li><li>Calculation data entered by the user (water flow indicators).</li><li>Usage statistics obtained through cookies.</li></ul><p>The Site <strong>does not collect</strong> personal identification data such as name, phone number, passport details, or payment information.</p>',
+  p_s3_title: "Purpose of data use",
+  p_s3_content: '<ul><li>Ensuring the Site functions correctly.</li><li>Improving and analyzing service quality.</li><li>Improving user experience.</li><li>Preparing statistical analysis and anonymous reports.</li><li>Responding in accordance with legal requirements.</li></ul>',
+  p_s4_title: "Cookies",
+  p_s4_content: '<p>The Site uses cookies to improve user experience. You can disable cookies through your browser settings.</p><p>The Site may use third-party services such as <strong>Google Analytics</strong> and <strong>Google Ads</strong>. These services set their own cookies and have their own privacy policies — the Site administration is not responsible for their policies.</p>',
+  p_s5_title: "Third parties",
+  p_s5_content: '<p>User data is not sold, rented, or disclosed to third parties — except in the following cases:</p><ul><li>When the user has given explicit consent.</li><li>When required by the laws of the Republic of Uzbekistan.</li><li>For the purpose of ensuring Site security or preventing legal violations.</li></ul>',
+  p_s6_title: "Data security",
+  p_s6_content: '<p>The Site takes the necessary technical measures to protect data.</p><div class="info-box">All data is transmitted in encrypted form via the <strong>HTTPS (SSL)</strong> protocol.</div>',
+  p_s7_title: "Children\'s privacy",
+  p_s7_content: '<p>The Site does not intentionally collect data from children under 13 years of age. If such data is found to have been collected, it will be immediately deleted.</p>',
+  p_s8_title: "User rights",
+  p_s8_content: '<ul><li>The right to access information about themselves.</li><li>The right to request correction of inaccurate data.</li><li>The right to request deletion of their data.</li><li>The right to withdraw consent to the processing of their data.</li></ul>',
+  p_s9_title: "Disclaimer of liability",
+  p_s9_content: '<p>The Site and its administration <strong>bear no responsibility whatsoever</strong> for the following:</p><div class="warn-box"><strong>⚠️ Important:</strong><br><br>Calculation results on the Site are regarded <strong>only as approximate information</strong>. They cannot replace official regulatory documents or a specialist\'s conclusion. The user uses the Site <strong>at their own risk</strong>.</div><ul style="margin-top:16px;"><li>Any decisions made based on calculation results, and their consequences.</li><li>Results obtained due to incorrectly entered user data.</li><li>Temporary suspension of Site operation or technical failures.</li><li>Issues arising through third-party services (Google, advertising networks).</li><li>Data loss due to external factors (viruses, hacker attacks).</li><li>Any material or other damages incurred based on information on the Site.</li></ul><div class="warn-box" style="margin-top:16px;">By using the Site, the user is deemed to have <strong>fully accepted</strong> all the above terms. All disputes are resolved only through <strong>negotiation and mutual agreement</strong>.</div>',
+  p_s10_title: "Changes to the policy",
+  p_s10_content: '<p>The Site administration reserves the right to make changes to this policy at any time. All changes take effect from the moment of publication.</p>',
+  p_s11_title: "Contact",
+  p_s11_content: '<ul><li>Website: <a href="https://ariqsuvsarfi.uz">ariqsuvsarfi.uz</a></li><li>Email: <a href="mailto:info@ariqsuvsarfi.uz">info@ariqsuvsarfi.uz</a></li></ul>'
+}
+};
+
+function tr(key) {
+  const lang = window.__currentLang || 'uz';
+  return (I18N[lang] && I18N[lang][key]) || I18N.uz[key] || key;
+}
+
+function applyLang(lang) {
+  if (!I18N[lang]) lang = 'uz';
+  window.__currentLang = lang;
+  try { localStorage.setItem('ariq_lang', lang); } catch (e) {}
+
+  document.querySelectorAll('[data-i18n]').forEach(function (el) {
+    el.textContent = tr(el.getAttribute('data-i18n'));
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
+    el.innerHTML = tr(el.getAttribute('data-i18n-html'));
+  });
+
+  document.querySelectorAll('.lang-option').forEach(function (opt) {
+    opt.classList.toggle('active', opt.getAttribute('data-lang') === lang);
+  });
+  const activeOpt = document.querySelector('.lang-option[data-lang="' + lang + '"]');
+  const curFlag = document.getElementById('lang-current-flag');
+  const curCode = document.getElementById('lang-current-code');
+  if (activeOpt && curFlag) curFlag.innerHTML = activeOpt.querySelector('.lang-flag').innerHTML;
+  if (curCode) curCode.textContent = lang.toUpperCase();
+
+  document.documentElement.setAttribute('lang', lang === 'qq' ? 'kaa' : lang);
+}
+
+const langSwitchEl = document.getElementById('lang-switch');
+document.getElementById('lang-current')?.addEventListener('click', function (e) {
+  e.stopPropagation();
+  langSwitchEl.classList.toggle('open');
+});
+document.querySelectorAll('.lang-option').forEach(function (opt) {
+  opt.addEventListener('click', function () {
+    applyLang(opt.getAttribute('data-lang'));
+    langSwitchEl.classList.remove('open');
+  });
+});
+document.addEventListener('click', function () { langSwitchEl?.classList.remove('open'); });
+
+(function initLang() {
+  let saved = 'uz';
+  try { saved = localStorage.getItem('ariq_lang') || 'uz'; } catch (e) {}
+  applyLang(saved);
+})();
+</script>
+
+<script type="module">
+  import { initializeApp, getApps } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+  import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDAASP0w2jdXToVVFBfgAsiBOrR3Lz8-z0",
+    authDomain: "ariqsuvsarfiuz.firebaseapp.com",
+    projectId: "ariqsuvsarfiuz",
+    storageBucket: "ariqsuvsarfiuz.firebasestorage.app",
+    messagingSenderId: "491723654197",
+    appId: "1:491723654197:web:e28be59fc949ea1c4cdd7c",
+    measurementId: "G-SRYYKXYKZH"
+  };
+
+  const app = getApps().length ? getApps()[0] : initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  window.__auth = auth;
+  window.__signOut = signOut;
+
+  function updateNavAuthUI(user) {
+    const loginLink = document.getElementById('nav-login-link');
+    const userWrap = document.getElementById('nav-user-wrap');
+    if (!loginLink || !userWrap) return;
+    if (user) {
+      loginLink.style.display = 'none';
+      userWrap.style.display = '';
+      const name = user.displayName || (user.email ? user.email.split('@')[0] : 'Фойдаланувчи');
+      const nameEl = document.getElementById('nav-user-name');
+      const avatarEl = document.getElementById('nav-avatar');
+      const emailEl = document.getElementById('nav-dropdown-email');
+      if (nameEl) nameEl.textContent = name;
+      if (avatarEl) avatarEl.textContent = name.charAt(0).toUpperCase();
+      if (emailEl) emailEl.textContent = user.email || '';
+    } else {
+      loginLink.style.display = '';
+      userWrap.style.display = 'none';
+      document.getElementById('nav-dropdown')?.classList.remove('show');
+    }
+  }
+
+  document.getElementById('nav-user-btn')?.addEventListener('click', function (e) {
+    e.stopPropagation();
+    document.getElementById('nav-dropdown').classList.toggle('show');
+  });
+  document.addEventListener('click', function () {
+    document.getElementById('nav-dropdown')?.classList.remove('show');
+  });
+  document.getElementById('nav-logout-btn')?.addEventListener('click', async function () {
+    try { await signOut(auth); } catch (e) {}
+    window.location.href = 'index.html';
+  });
+
+  onAuthStateChanged(auth, updateNavAuthUI);
+</script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('/sw.js').catch(function (e) {
+      console.log('SW registration failed:', e);
+    });
+  });
+}
+</script>
+</body>
+</html>
